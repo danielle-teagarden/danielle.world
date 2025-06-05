@@ -1,0 +1,3 @@
+# Redirect to the piano player deployment
+/projects/open-music-tools/classical-piano-player/* https://classical-piano-player.netlify.app/:splat 200
+/projects/open-music-tools/classical-piano-player https://classical-piano-player.netlify.app/ 200
