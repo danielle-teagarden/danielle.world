@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher's Manual - Copyright Law Lecture</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #fafafa;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .manual-header {
+            background: #2563eb;
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .manual-header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .manual-header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .quick-nav {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        
+        .quick-nav h2 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #2563eb;
+        }
+        
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .nav-links a {
+            background: #f3f4f6;
+            padding: 8px 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #4b5563;
+            transition: all 0.2s;
+            font-size: 0.9rem;
+        }
+        
+        .nav-links a:hover {
+            background: #2563eb;
+            color: white;
+        }
+        
+        .section {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        
+        .section h2 {
+            font-size: 1.5rem;
+            color: #2563eb;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e5e7eb;
+        }
+        
+        .section h3 {
+            font-size: 1.2rem;
+            color: #374151;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .reading-card {
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .reading-card h4 {
+            color: #1f2937;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .reading-link {
+            display: inline-block;
+            color: #2563eb;
+            text-decoration: none;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        
+        .reading-link:hover {
+            text-decoration: underline;
+        }
+        
+        .exec-summary {
+            background: #fef3c7;
+            border: 1px solid #fcd34d;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .exec-summary h5 {
+            color: #92400e;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .talking-points {
+            background: #dbeafe;
+            border: 1px solid #60a5fa;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .talking-points h5 {
+            color: #1e40af;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .talking-points ul {
+            margin-left: 20px;
+        }
+        
+        .talking-points li {
+            margin-bottom: 8px;
+            color: #1e40af;
+        }
+        
+        .print-only {
+            display: none;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 10px;
+            }
+            
+            .manual-header {
+                background: none;
+                color: black;
+                border: 2px solid #2563eb;
+                page-break-after: avoid;
+            }
+            
+            .section {
+                box-shadow: none;
+                border: 1px solid #e5e7eb;
+                page-break-inside: avoid;
+            }
+            
+            .print-only {
+                display: block;
+            }
+            
+            .quick-nav {
+                display: none;
+            }
+        }
+        
+        .timeline-note {
+            background: #f0f9ff;
+            border-left: 4px solid #0ea5e9;
+            padding: 15px;
+            margin: 15px 0;
+            font-style: italic;
+        }
+        
+        .case-note {
+            background: #f5f3ff;
+            border-left: 4px solid #8b5cf6;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .discussion-prompt {
+            background: #ecfdf5;
+            border-left: 4px solid #10b981;
+            padding: 15px;
+            margin: 15px 0;
+            font-weight: 500;
+        }
+
+        .new-update {
+            background: #fef2f2;
+            border: 2px solid #f87171;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .new-update h5 {
+            color: #dc2626;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .pedagogy-box {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border: 2px solid #0ea5e9;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .legal-accuracy-box {
+            background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%);
+            border: 2px solid #8b5cf6;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .academic-standards-box {
+            background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+            border: 2px solid #10b981;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .citation-guide {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+
+        .break-timing {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .literature-integration {
+            background: #fdf2e9;
+            border-left: 4px solid #ea580c;
+            padding: 15px;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="manual-header">
+        <h1>Teacher's Manual</h1>
+        <p>Copyright Law: From Constitutional Foundation to Modern Challenges</p>
+        <p>2.5-Hour Guest Lecture for Law & Literature Students</p>
+        <p class="print-only">Printed: <script>document.write(new Date().toLocaleDateString());</script></p>
+    </div>
+
+    <div class="new-update">
+        <h5>Recent Major Updates (June 2025)</h5>
+        <ul>
+            <li><strong>New Learning Objectives Section (Section 0)</strong> - Structured goals for interdisciplinary students</li>
+            <li><strong>Enhanced Legal Citations</strong> - Proper Bluebook format throughout all sections</li>
+            <li><strong>Literature Integration</strong> - Strengthened examples and analysis for law & literature context</li>
+            <li><strong>2.5-Hour Format</strong> - Optimized timing with strategic breaks and engagement strategies</li>
+            <li><strong>Updated Section Numbers</strong> - Now 12 sections total (0-11) with renumbered content</li>
+            <li><strong>Professional Tone</strong> - Refined language for guest lecture appropriateness</li>
+        </ul>
+    </div>
+
+    <div class="quick-nav">
+        <h2>Quick Navigation</h2>
+        <div class="nav-links">
+            <a href="#overview">Lecture Overview</a>
+            <a href="#learning-objectives-guide">Learning Objectives</a>
+            <a href="#readings">All Readings</a>
+            <a href="#timing-guide">2.5-Hour Timing</a>
+            <a href="#citation-teaching">Legal Citation Guide</a>
+            <a href="#literature-strategies">Literature Integration</a>
+            <a href="#section-guides">Section-by-Section</a>
+            <a href="#engagement-techniques">Engagement Techniques</a>
+            <a href="#assessment">Assessment Approaches</a>
+        </div>
+    </div>
+
+    <div class="section" id="overview">
+        <h2>📖 Lecture Overview</h2>
+        
+        <div class="pedagogy-box">
+            <h3>🎓 Educational Pedagogy Framework</h3>
+            <p><strong>This lecture employs three expert perspectives to ensure comprehensive learning:</strong></p>
+            <ul>
+                <li><strong>Educational Pedagogy Expert:</strong> Interactive engagement, law & literature integration, strategic pacing</li>
+                <li><strong>Legal Accuracy Expert:</strong> Precise legal citations, current case law, constitutional grounding</li>
+                <li><strong>Academic Standards Expert:</strong> Scholarly rigor, interdisciplinary connections, professional development</li>
+            </ul>
+        </div>
+
+        <div class="academic-standards-box">
+            <h3>📚 Target Audience: Law & Literature Students</h3>
+            <p><strong>This guest lecture is specifically designed for students who:</strong></p>
+            <ul>
+                <li>Are studying the intersection of legal and literary analysis</li>
+                <li>Need to understand copyright's impact on creative expression</li>
+                <li>May pursue careers involving publishing, media, or cultural institutions</li>
+                <li>Benefit from seeing law through both legal and humanistic lenses</li>
+                <li>Require practical understanding of intellectual property in creative contexts</li>
+            </ul>
+        </div>
+
+        <div class="legal-accuracy-box">
+            <h3>⚖️ Legal Authority & Currency</h3>
+            <p><strong>All legal content is current as of June 2025, including:</strong></p>
+            <ul>
+                <li>Proper Bluebook citations for all cases and statutes</li>
+                <li>Current pending litigation (NYT v. OpenAI, Thaler v. Perlmutter)</li>
+                <li>Recent Supreme Court decisions (Warhol Foundation)</li>
+                <li>Updated public domain calculations (post-Steamboat Willie)</li>
+                <li>Contemporary AI authorship developments</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section" id="learning-objectives-guide">
+        <h2>🎯 Section 0: Learning Objectives - Teaching Guide</h2>
+        
+        <div class="timeline-note">
+            <strong>Time Allocation:</strong> 8-10 minutes (New opening section)
+        </div>
+
+        <div class="pedagogy-box">
+            <h3>🎓 Educational Pedagogy: Teaching the Learning Objectives</h3>
+            
+            <h4>Opening Strategy</h4>
+            <p><strong>Start with student self-assessment:</strong></p>
+            <ul>
+                <li>"How many of you have posted creative content online?" (constitutional grounding)</li>
+                <li>"Who has quoted literature in academic work?" (fair use preview)</li>
+                <li>"Any international students? Different copyright rules at home?" (comparative law preview)</li>
+                <li>"Anyone concerned about AI in creative work?" (modern challenges preview)</li>
+            </ul>
+            
+            <h4>Four Learning Goals Explanation</h4>
+            <p><strong>Connect each goal category to law & literature interests:</strong></p>
+            <ol>
+                <li><strong>Foundational Understanding:</strong> "You'll see how constitutional principles shape what gets published"</li>
+                <li><strong>Practical Application:</strong> "You'll be able to advise on real publishing and academic scenarios"</li>
+                <li><strong>Critical Analysis:</strong> "You'll analyze the tension between protecting authors and enabling cultural discourse"</li>
+                <li><strong>Professional Preparation:</strong> "You'll anticipate copyright issues in literary careers and academia"</li>
+            </ol>
+        </div>
+
+        <div class="academic-standards-box">
+            <h3>📊 Academic Standards: Learning Assessment Preview</h3>
+            <p><strong>Explain how objectives will be measured throughout:</strong></p>
+            <ul>
+                <li><strong>Knowledge checks:</strong> Quick polling on constitutional principles</li>
+                <li><strong>Application exercises:</strong> Fair use scenarios throughout</li>
+                <li><strong>Critical thinking prompts:</strong> Policy discussions and hypotheticals</li>
+                <li><strong>Synthesis opportunities:</strong> Literature-law connections in each section</li>
+            </ul>
+        </div>
+
+        <div class="literature-integration">
+            <h3>📖 Literature Connection Strategy</h3>
+            <p><strong>Immediately establish literature relevance:</strong></p>
+            <ul>
+                <li>"Copyright doesn't just govern literature—it fundamentally shapes what gets written, published, and preserved"</li>
+                <li>"Every time you analyze a text, you're engaging with copyright decisions about access and preservation"</li>
+                <li>"Authors from Dickens to contemporary writers have shaped copyright law through their advocacy"</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section" id="readings">
+        <h2>📖 Complete Readings List with Teaching Notes</h2>
+        
+        <div class="reading-card">
+            <h4>1. Eldred v. Ashcroft, 537 U.S. 186 (2003)</h4>
+            <a href="https://www.law.cornell.edu/supct/html/01-618.ZS.html" class="reading-link" target="_blank">Read Full Case →</a>
+            
+            <div class="exec-summary">
+                <h5>Executive Summary</h5>
+                <p><strong>Facts:</strong> Congress passed the Sonny Bono Copyright Term Extension Act (CTEA) in 1998, extending existing copyrights by 20 years - from life + 50 to life + 70 years for individual works, and from 75 to 95 years for corporate works.</p>
+                <p><strong>Issue:</strong> Whether the CTEA violated the Constitution's Copyright Clause ("limited Times") or the First Amendment.</p>
+                <p><strong>Holding:</strong> 7-2 decision upholding CTEA. The Court found Congress acted within its authority and that copyright's built-in free speech safeguards (idea/expression dichotomy and fair use) address First Amendment concerns.</p>
+                <p><strong>Key Point:</strong> Demonstrates Congress's broad power to set copyright terms, as long as they remain finite.</p>
+            </div>
+            
+            <div class="legal-accuracy-box">
+                <h5>Legal Citation Teaching Points</h5>
+                <div class="citation-guide">
+                    <strong>Proper Bluebook Citation:</strong><br>
+                    Eldred v. Ashcroft, 537 U.S. 186 (2003)<br><br>
+                    <strong>Teaching Notes:</strong><br>
+                    • 537 U.S. = Volume 537 of United States Reports<br>
+                    • 186 = Page 186<br>
+                    • (2003) = Year of decision<br>
+                    • No comma before year for Supreme Court cases
+                </div>
+            </div>
+            
+            <div class="talking-points">
+                <h5>Literature-Focused Discussion Points</h5>
+                <ul>
+                    <li><strong>Author Estate Perspective:</strong> How does term extension affect literary estates like those of F. Scott Fitzgerald or Ernest Hemingway?</li>
+                    <li><strong>Academic Access:</strong> What does delayed public domain entry mean for literature classrooms and scholarship?</li>
+                    <li><strong>Cultural Heritage:</strong> Should foundational American literature be in the public domain sooner?</li>
+                    <li><strong>International Comparison:</strong> How do European term extensions affect global literary culture?</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="reading-card">
+            <h4>2. Campbell v. Acuff-Rose Music, Inc., 510 U.S. 569 (1994)</h4>
+            <a href="https://www.law.cornell.edu/supct/html/92-1292.ZS.html" class="reading-link" target="_blank">Read Full Case →</a>
+            
+            <div class="exec-summary">
+                <h5>Executive Summary</h5>
+                <p><strong>Facts:</strong> 2 Live Crew created a commercial parody of Roy Orbison's "Oh, Pretty Woman" without permission.</p>
+                <p><strong>Issue:</strong> Whether commercial parody can qualify as fair use.</p>
+                <p><strong>Holding:</strong> Unanimous decision that commercial nature doesn't presumptively bar fair use. Parody can be fair use if transformative.</p>
+                <p><strong>Key Innovation:</strong> Introduced "transformative use" as central to fair use analysis.</p>
+            </div>
+            
+            <div class="talking-points">
+                <h5>Literature Application Points</h5>
+                <ul>
+                    <li><strong>Literary Parody:</strong> How does this apply to works like "Pride and Prejudice and Zombies"?</li>
+                    <li><strong>Academic Commentary:</strong> When is extensive quotation in literary criticism protected?</li>
+                    <li><strong>Fan Fiction:</strong> How does transformative use analysis apply to derivative literary works?</li>
+                    <li><strong>Cultural Critique:</strong> Protection for works that critique literary classics from new perspectives</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="reading-card">
+            <h4>3. Authors Guild v. Google, Inc., 804 F.3d 202 (2d Cir. 2015)</h4>
+            <a href="https://law.justia.com/cases/federal/appellate-courts/ca2/13-4829/13-4829-2015-10-16.html" class="reading-link" target="_blank">Read Full Case →</a>
+            
+            <div class="exec-summary">
+                <h5>Executive Summary</h5>
+                <p><strong>Facts:</strong> Google scanned millions of books to create searchable database, showing snippets without permission.</p>
+                <p><strong>Issue:</strong> Whether mass digitization for search purposes constitutes fair use.</p>
+                <p><strong>Holding:</strong> Google's use was transformative fair use - it provided information about books, not substitutes for them.</p>
+                <p><strong>Impact:</strong> Legitimized large-scale digitization projects for research and information access.</p>
+            </div>
+            
+            <div class="literature-integration">
+                <h5>Literary Research Connection</h5>
+                <ul>
+                    <li><strong>Digital Humanities:</strong> How Google Books enables distant reading and computational literary analysis</li>
+                    <li><strong>Access to Literature:</strong> Democratization of literary research beyond elite institutions</li>
+                    <li><strong>Preservation:</strong> Digital archives as cultural preservation versus commercial exploitation</li>
+                    <li><strong>Discovery:</strong> How searchability changes how we find and study literature</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="reading-card">
+            <h4>4. A&M Records, Inc. v. Napster, Inc., 239 F.3d 1004 (9th Cir. 2001)</h4>
+            <a href="https://law.justia.com/cases/federal/appellate-courts/F3/239/1004/506545/" class="reading-link" target="_blank">Read Full Case →</a>
+            
+            <div class="exec-summary">
+                <h5>Executive Summary</h5>
+                <p><strong>Facts:</strong> Napster operated peer-to-peer file sharing service used primarily for copyrighted music.</p>
+                <p><strong>Issue:</strong> Secondary liability for user infringement; whether personal downloading is fair use.</p>
+                <p><strong>Holding:</strong> Napster liable for contributory and vicarious infringement. Personal downloading not fair use when it undermines copyright holder's market.</p>
+                <p><strong>Legacy:</strong> Shaped online platform liability and led to DMCA safe harbors' importance.</p>
+            </div>
+            
+            <div class="talking-points">
+                <h5>Modern Platform Relevance</h5>
+                <ul>
+                    <li><strong>Literary Platforms:</strong> How does Napster precedent apply to platforms sharing e-books or academic papers?</li>
+                    <li><strong>AI Training:</strong> Platform liability when AI systems train on copyrighted literary works</li>
+                    <li><strong>Educational Sharing:</strong> When does academic file sharing cross into infringement?</li>
+                    <li><strong>Market Harm Analysis:</strong> Distinguishing between competition and copyright violation</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="reading-card">
+            <h4>5. Feist Publications, Inc. v. Rural Telephone Service Co., 499 U.S. 340 (1991)</h4>
+            <a href="https://www.law.cornell.edu/supct/html/89-1909.ZS.html" class="reading-link" target="_blank">Read Full Case →</a>
+            
+            <div class="exec-summary">
+                <h5>Executive Summary</h5>
+                <p><strong>Facts:</strong> Feist copied Rural's white pages phone directory listings.</p>
+                <p><strong>Issue:</strong> Whether factual compilations without creative selection/arrangement deserve copyright.</p>
+                <p><strong>Holding:</strong> No copyright in facts; compilations need minimal creativity. "Sweat of the brow" doctrine rejected.</p>
+                <p><strong>Principle:</strong> Copyright rewards creativity, not effort.</p>
+            </div>
+            
+            <div class="talking-points">
+                <h5>Literary Data & AI Applications</h5>
+                <ul>
+                    <li><strong>Literary Databases:</strong> When do collections of literary works gain separate copyright protection?</li>
+                    <li><strong>AI Training Data:</strong> Can factual compilations of literary works be freely used for machine learning?</li>
+                    <li><strong>Anthology Creation:</strong> Creativity requirements for poetry or story collections</li>
+                    <li><strong>Academic Research:</strong> Protecting databases of literary criticism and scholarship</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="reading-card">
+            <h4>6. Andy Warhol Foundation v. Goldsmith, 598 U.S. __ (2023)</h4>
+            <a href="https://www.supremecourt.gov/opinions/22pdf/21-869_87ad.pdf" class="reading-link" target="_blank">Read Full Case →</a>
+            
+            <div class="exec-summary">
+                <h5>Executive Summary</h5>
+                <p><strong>Facts:</strong> Warhol Foundation licensed Warhol's Prince artwork (based on Goldsmith photograph) for commercial use.</p>
+                <p><strong>Issue:</strong> Whether transformative art automatically qualifies for fair use in commercial licensing.</p>
+                <p><strong>Holding:</strong> 7-2 decision that transformation alone isn't enough; commercial licensing that competes with original market typically not fair use.</p>
+                <p><strong>Current Impact:</strong> Narrows transformative use doctrine for commercial applications.</p>
+            </div>
+            
+            <div class="literature-integration">
+                <h5>Literary Transformation Analysis</h5>
+                <ul>
+                    <li><strong>Commercial Adaptation:</strong> When does literary transformation cross into market competition?</li>
+                    <li><strong>Artistic License:</strong> Covers for literary works based on other artistic works</li>
+                    <li><strong>Academic vs. Commercial:</strong> Different fair use analysis for scholarship versus publishing</li>
+                    <li><strong>Market Substitution:</strong> When transformed literary works compete with originals</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="timing-guide">
+        <h2>⏰ 2.5-Hour Lecture Timing & Break Strategy</h2>
+        
+        <div class="pedagogy-box">
+            <h3>🎓 Educational Pedagogy: Optimal Learning Pacing</h3>
+            <p><strong>Guest lectures require strategic energy management:</strong></p>
+            <ul>
+                <li><strong>Attention spans:</strong> 15-20 minute segments with variation</li>
+                <li><strong>Interactive breaks:</strong> Every 30-40 minutes to prevent fatigue</li>
+                <li><strong>Content chunking:</strong> Major concepts separated by application exercises</li>
+                <li><strong>Energy management:</strong> High-engagement activities after natural low points</li>
+            </ul>
+        </div>
+
+        <div class="break-timing">
+            <h3>🕐 Recommended 2.5-Hour Structure</h3>
+        </div>
+
+        <div class="timeline-note">
+            <strong>Block 1: Constitutional Foundations (45 minutes)</strong><br>
+            • Section 0: Learning Objectives (8 min)<br>
+            • Section 1: Pre-Class Readings Review (7 min)<br>
+            • Section 2: IP Introduction (15 min)<br>
+            • Section 3: Constitutional Foundation (15 min)<br>
+            <strong>→ 10-minute break</strong>
+        </div>
+
+        <div class="timeline-note">
+            <strong>Block 2: Legal Framework (50 minutes)</strong><br>
+            • Section 4: International Copyright (10 min)<br>
+            • Section 5: IP Landscape (15 min)<br>
+            • Section 6: Copyright Fundamentals (25 min)<br>
+            <strong>→ 15-minute break (mid-lecture break)</strong>
+        </div>
+
+        <div class="timeline-note">
+            <strong>Block 3: Applied Analysis (45 minutes)</strong><br>
+            • Section 7: Idea vs. Expression (15 min)<br>
+            • Section 8: Fair Use in Literary Context (30 min)<br>
+            <strong>→ 5-minute stretch break</strong>
+        </div>
+
+        <div class="timeline-note">
+            <strong>Block 4: Modern Challenges (40 minutes)</strong><br>
+            • Section 9: Technology & Authorship (15 min)<br>
+            • Section 10: AI & Modern Copyright (15 min)<br>
+            • Section 11: Practice Applications & Future (10 min)<br>
+            <strong>→ Final Q&A and wrap-up (10 min)</strong>
+        </div>
+
+        <div class="pedagogy-box">
+            <h3>🎯 Break Activity Suggestions</h3>
+            
+            <h4>10-Minute Break Activities</h4>
+            <ul>
+                <li><strong>Quick Poll:</strong> "What's one copyright issue you never thought about?"</li>
+                <li><strong>Pair Discussion:</strong> "Share an example of fair use you've encountered"</li>
+                <li><strong>Literature Connection:</strong> "Name a book that should be in public domain but isn't"</li>
+            </ul>
+            
+            <h4>15-Minute Break (Mid-Lecture)</h4>
+            <ul>
+                <li><strong>Physical movement</strong> - Essential for attention restoration</li>
+                <li><strong>Individual reflection:</strong> "Write one question about copyright and literature"</li>
+                <li><strong>Optional small group formation</strong> for upcoming fair use scenarios</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section" id="citation-teaching">
+        <h2>⚖️ Legal Citation Teaching Guide</h2>
+        
+        <div class="legal-accuracy-box">
+            <h3>📚 Legal Accuracy: Teaching Bluebook Format</h3>
+            <p><strong>Law & literature students may not have extensive legal citation experience. Provide context:</strong></p>
+            
+            <h4>Why Legal Citation Matters for Literature Students</h4>
+            <ul>
+                <li><strong>Academic credibility:</strong> Proper citation shows legal literacy</li>
+                <li><strong>Research skills:</strong> Finding and citing cases for literary analysis</li>
+                <li><strong>Professional preparation:</strong> Essential for law school or legal careers</li>
+                <li><strong>Precision:</strong> Legal writing demands exact citation for verification</li>
+            </ul>
+        </div>
+
+        <div class="citation-guide">
+            <h4>Essential Bluebook Patterns for Copyright Cases</h4>
+            
+            <strong>Supreme Court Cases:</strong><br>
+            Campbell v. Acuff-Rose Music, Inc., 510 U.S. 569 (1994)<br>
+            [Case name], [Volume] U.S. [Page] ([Year])<br><br>
+            
+            <strong>Circuit Court Cases:</strong><br>
+            Authors Guild v. Google, Inc., 804 F.3d 202 (2d Cir. 2015)<br>
+            [Case name], [Volume] F.3d [Page] ([Circuit] [Year])<br><br>
+            
+            <strong>Statutes:</strong><br>
+            17 U.S.C. § 107 (2018)<br>
+            [Title] U.S.C. § [Section] ([Year])<br><br>
+            
+            <strong>Constitutional Provisions:</strong><br>
+            U.S. Const. art. I, § 8, cl. 8<br>
+            [Constitution], [Article], [Section], [Clause]
+        </div>
+
+        <div class="pedagogy-box">
+            <h3>🎓 Teaching Citation Integration</h3>
+            
+            <h4>Progressive Citation Teaching Strategy</h4>
+            <ol>
+                <li><strong>First mention:</strong> Point out citation format in slides</li>
+                <li><strong>Second mention:</strong> Ask students to identify citation elements</li>
+                <li><strong>Third mention:</strong> Have students practice citing a new case</li>
+                <li><strong>Application:</strong> Include proper citation in discussion responses</li>
+            </ol>
+            
+            <h4>Literature Student Adaptations</h4>
+            <ul>
+                <li><strong>Compare to MLA:</strong> "Legal citation is like MLA but more detailed"</li>
+                <li><strong>Explain abbreviations:</strong> "F.3d means Federal Reporter, Third Series"</li>
+                <li><strong>Emphasize precision:</strong> "In law, exactly which page matters for verification"</li>
+                <li><strong>Practice opportunities:</strong> "Try citing the Feist case using this format"</li>
+            </ul>
+        </div>
+
+        <div class="academic-standards-box">
+            <h3>📊 Citation Accuracy Checkpoints</h3>
+            <p><strong>Build citation checking into lecture flow:</strong></p>
+            <ul>
+                <li><strong>Section 2:</strong> Constitutional citation practice</li>
+                <li><strong>Section 6:</strong> Statutory citation introduction</li>
+                <li><strong>Section 8:</strong> Case citation mastery check</li>
+                <li><strong>Section 11:</strong> Citation integration in practice scenarios</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section" id="literature-strategies">
+        <h2>📖 Literature Integration Teaching Strategies</h2>
+        
+        <div class="literature-integration">
+            <h3>📚 Connecting Copyright to Literary Analysis</h3>
+            
+            <h4>Core Literature-Law Connections</h4>
+            <ul>
+                <li><strong>Authorship theories:</strong> Roland Barthes' "Death of the Author" vs. copyright's author-centric model</li>
+                <li><strong>Intertextuality:</strong> How extensive literary borrowing relates to fair use doctrine</li>
+                <li><strong>Canon formation:</strong> Copyright terms affect which works stay accessible for classroom use</li>
+                <li><strong>Cultural critique:</strong> Fair use protection for transformative readings of literary classics</li>
+                <li><strong>Publishing economics:</strong> How copyright affects which literature gets published and preserved</li>
+            </ul>
+        </div>
+
+        <div class="pedagogy-box">
+            <h3>🎓 Literature-Specific Teaching Techniques</h3>
+            
+            <h4>Case Study Integration</h4>
+            <ul>
+                <li><strong>Use literary examples:</strong> Replace business scenarios with publishing and academic situations</li>
+                <li><strong>Author perspectives:</strong> "How would James Joyce have viewed this fair use doctrine?"</li>
+                <li><strong>Reader response theory:</strong> How does copyright law shape what readers can access and discuss?</li>
+                <li><strong>Cultural studies approach:</strong> Copyright as a force that shapes literary culture</li>
+            </ul>
+            
+            <h4>Interactive Literature Exercises</h4>
+            <ol>
+                <li><strong>Public Domain Exploration:</strong> "Name a classic work that should be freely available but isn't"</li>
+                <li><strong>Fair Use Analysis:</strong> "Is extensive quotation in your thesis chapter fair use?"</li>
+                <li><strong>Parody Protection:</strong> "Why can SNL parody songs but needs permission for literature?"</li>
+                <li><strong>International Differences:</strong> "How do moral rights affect literary translation?"</li>
+            </ol>
+        </div>
+
+        <div class="academic-standards-box">
+            <h3>📊 Literature-Law Synthesis Assessment</h3>
+            
+            <h4>Knowledge Integration Checks</h4>
+            <ul>
+                <li><strong>Conceptual connections:</strong> "How does fair use doctrine relate to literary criticism methods?"</li>
+                <li><strong>Practical application:</strong> "What copyright issues might arise in your literature thesis?"</li>
+                <li><strong>Policy analysis:</strong> "Should copyright terms be shorter to benefit literary scholarship?"</li>
+                <li><strong>Professional preparation:</strong> "How would you advise a literary magazine on copyright?"</li>
+            </ul>
+        </div>
+
+        <div class="discussion-prompt">
+            <h4>🎭 Literature-Focused Discussion Prompts</h4>
+            <p><strong>Use throughout lecture to maintain literature relevance:</strong></p>
+            <ul>
+                <li>"How does copyright affect which literature gets taught in schools?"</li>
+                <li>"Should academic criticism have broader fair use protections?"</li>
+                <li>"What happens when AI writes in the style of living authors?"</li>
+                <li>"How do international moral rights affect global literary translation?"</li>
+                <li>"Is fan fiction transformative enough to qualify for fair use protection?"</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section" id="section-guides">
+        <h2>📋 Section-by-Section Teaching Guides</h2>
+
+        <div class="section">
+            <h3>Section 1: Pre-Class Readings (7 minutes)</h3>
+            
+            <div class="pedagogy-box">
+                <h4>🎓 Engagement Strategy</h4>
+                <ul>
+                    <li><strong>Quick poll:</strong> "How many read at least 3 cases?"</li>
+                    <li><strong>Case story hooks:</strong> "Campbell case is about rap music - how does that connect to literature?"</li>
+                    <li><strong>Reading integration:</strong> "We'll return to these cases throughout - they're the foundation"</li>
+                </ul>
+            </div>
+            
+            <div class="timeline-note">
+                <strong>Literature Connection:</strong> Frame cases as stories about creativity, authorship, and cultural expression rather than just legal precedents.
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>Section 2: IP Introduction (15 minutes)</h3>
+            
+            <div class="academic-standards-box">
+                <h4>📊 Academic Standards Focus</h4>
+                <ul>
+                    <li><strong>Scholarly foundation:</strong> Position copyright within broader IP framework</li>
+                    <li><strong>Conceptual clarity:</strong> Distinguish copyright from trademark and patent clearly</li>
+                    <li><strong>Literature relevance:</strong> Why copyright matters most for literary work</li>
+                    <li><strong>Historical context:</strong> Gutenberg to digital publishing evolution</li>
+                </ul>
+            </div>
+            
+            <div class="literature-integration">
+                <h4>📖 Literature Examples</h4>
+                <ul>
+                    <li><strong>Trademark:</strong> Harry Potter name protection vs. plot protection</li>
+                    <li><strong>Patent:</strong> Why you can't patent a story structure</li>
+                    <li><strong>Copyright:</strong> Protection for expression in novels, poems, plays</li>
+                    <li><strong>Trade secret:</strong> Unpublished manuscripts before publication</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>Section 3: Constitutional Foundation (15 minutes)</h3>
+            
+            <div class="legal-accuracy-box">
+                <h4>⚖️ Legal Accuracy Emphasis</h4>
+                <ul>
+                    <li><strong>Constitutional text:</strong> Read actual language of Progress Clause</li>
+                    <li><strong>Federalism:</strong> Why copyright is federal, not state law</li>
+                    <li><strong>Limited times:</strong> What "limited" means after Eldred</li>
+                    <li><strong>Preemption:</strong> How federal copyright displaces state protection</li>
+                </ul>
+            </div>
+            
+            <div class="case-note">
+                <h4>🎭 Burrow-Giles Story for Literature Students</h4>
+                <p><strong>Oscar Wilde's 1884 photograph case:</strong></p>
+                <ul>
+                    <li>First Supreme Court case on human authorship through technology</li>
+                    <li>Wilde as aesthetic movement leader - art and law intersection</li>
+                    <li>Technology enhancing human creativity rather than replacing it</li>
+                    <li>Precedent still relevant for AI authorship debates today</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>Section 8: Fair Use in Literary Context (30 minutes)</h3>
+            
+            <div class="pedagogy-box">
+                <h4>🎓 Interactive Workshop Approach</h4>
+                <p><strong>This is the heart of the lecture for literature students:</strong></p>
+                
+                <h5>Scenario-Based Learning (20 minutes)</h5>
+                <ol>
+                    <li><strong>Academic thesis quotation:</strong> How much can you quote in literary analysis?</li>
+                    <li><strong>Literary magazine publishing:</strong> Using excerpts for criticism and review</li>
+                    <li><strong>Fan fiction analysis:</strong> When does derivative work become transformative?</li>
+                    <li><strong>Digital humanities:</strong> Using copyrighted texts for computational analysis</li>
+                </ol>
+                
+                <h5>Four-Factor Analysis Workshop (10 minutes)</h5>
+                <ul>
+                    <li><strong>Groups of 3-4 students</strong> each take one scenario</li>
+                    <li><strong>Apply four factors</strong> to their specific situation</li>
+                    <li><strong>Report back</strong> with recommendations</li>
+                    <li><strong>Class discussion</strong> on borderline cases</li>
+                </ul>
+            </div>
+            
+            <div class="literature-integration">
+                <h4>📚 Literature-Specific Fair Use Examples</h4>
+                <ul>
+                    <li><strong>SunTrust v. Houghton Mifflin:</strong> "Wind Done Gone" as critical commentary</li>
+                    <li><strong>Salinger v. Colting:</strong> Failed sequel attempt - when transformation isn't enough</li>
+                    <li><strong>Cariou v. Prince:</strong> Appropriation art principles applied to literature</li>
+                    <li><strong>Cambridge Univ. Press v. Patton:</strong> Academic course packet limitations</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>Section 11: Practice Applications (10 minutes)</h3>
+            
+            <div class="academic-standards-box">
+                <h4>📊 Professional Development Focus</h4>
+                <p><strong>Career-oriented applications for literature students:</strong></p>
+                
+                <h5>Publishing Industry Scenarios</h5>
+                <ul>
+                    <li><strong>Literary agent:</strong> Advising clients on AI-assisted writing disclosure</li>
+                    <li><strong>Publishing house lawyer:</strong> Rights acquisition and international licensing</li>
+                    <li><strong>Literary magazine editor:</strong> Fair use for excerpts and reviews</li>
+                    <li><strong>Academic publisher:</strong> Permissions for anthologies and textbooks</li>
+                </ul>
+                
+                <h5>Academic Career Preparation</h5>
+                <ul>
+                    <li><strong>Graduate school:</strong> Thesis and dissertation copyright issues</li>
+                    <li><strong>Academic publishing:</strong> Journal article permissions and fair use</li>
+                    <li><strong>Digital humanities:</strong> Large-scale text analysis permissions</li>
+                    <li><strong>Teaching:</strong> Course packet and classroom use guidelines</li>
+                </ul>
+            </div>
+            
+            <div class="discussion-prompt">
+                <h4>🔮 Future-Oriented Questions</h4>
+                <ul>
+                    <li>"How will copyright adapt as AI becomes more prevalent in creative writing?"</li>
+                    <li>"What would you want copyright law to look like for literature in 2035?"</li>
+                    <li>"How can lawyers help balance creator rights with cultural access?"</li>
+                    <li>"What copyright issues do you anticipate in your own career?"</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="engagement-techniques">
+        <h2>🎯 Advanced Engagement Techniques</h2>
+        
+        <div class="pedagogy-box">
+            <h3>🎓 Interactive Learning Strategies</h3>
+            
+            <h4>Think-Pair-Share Variations</h4>
+            <ul>
+                <li><strong>Constitutional Think-Pair-Share:</strong> "What would the Framers think about 95-year copyright terms?"</li>
+                <li><strong>Fair Use Scenarios:</strong> Pairs analyze different factors, then share reasoning</li>
+                <li><strong>International Comparison:</strong> Compare US and European approaches to moral rights</li>
+                <li><strong>Technology Timeline:</strong> Predict next major copyright disruption</li>
+            </ul>
+            
+            <h4>Polling and Quick Checks</h4>
+            <ul>
+                <li><strong>Knowledge polls:</strong> "Is a phone book copyrightable?" (Feist review)</li>
+                <li><strong>Opinion polls:</strong> "Should copyright terms be shorter for academic benefit?"</li>
+                <li><strong>Application polls:</strong> "Is this scenario fair use?" with instant feedback</li>
+                <li><strong>Career relevance:</strong> "Which copyright issue most affects your career plans?"</li>
+            </ul>
+        </div>
+
+        <div class="academic-standards-box">
+            <h3>📊 Maintaining Academic Rigor</h3>
+            
+            <h4>Scholarly Engagement Strategies</h4>
+            <ul>
+                <li><strong>Primary source analysis:</strong> Read actual constitutional text and statutory language</li>
+                <li><strong>Comparative methodology:</strong> US vs. international approaches to same issues</li>
+                <li><strong>Historical development:</strong> How copyright law evolved with technology</li>
+                <li><strong>Policy analysis:</strong> Evaluate whether current law serves constitutional purpose</li>
+            </ul>
+            
+            <h4>Critical Thinking Prompts</h4>
+            <ul>
+                <li><strong>Synthesize:</strong> "How do these three cases work together to shape fair use?"</li>
+                <li><strong>Analyze:</strong> "What underlying assumptions about authorship drive copyright law?"</li>
+                <li><strong>Evaluate:</strong> "Is the current balance between access and protection optimal?"</li>
+                <li><strong>Apply:</strong> "How would you modify copyright law for the digital age?"</li>
+            </ul>
+        </div>
+
+        <div class="literature-integration">
+            <h3>📖 Literature-Specific Engagement</h3>
+            
+            <h4>Cultural Analysis Integration</h4>
+            <ul>
+                <li><strong>Author studies:</strong> How copyright affected specific writers' careers</li>
+                <li><strong>Literary movements:</strong> Copyright's role in preserving or hindering cultural movements</li>
+                <li><strong>Translation studies:</strong> International copyright complications for literary translation</li>
+                <li><strong>Digital culture:</strong> How online literary communities navigate copyright</li>
+            </ul>
+            
+            <h4>Creative Exercises</h4>
+            <ul>
+                <li><strong>Role playing:</strong> Students argue from different stakeholder perspectives</li>
+                <li><strong>Policy drafting:</strong> Write ideal copyright provision for academic use</li>
+                <li><strong>Case briefing:</strong> Summarize key cases using literary analysis techniques</li>
+                <li><strong>Future scenarios:</strong> Predict copyright challenges for emerging literary forms</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section" id="assessment">
+        <h2>📊 Assessment Approaches for Law & Literature Students</h2>
+        
+        <div class="academic-standards-box">
+            <h3>📚 Formative Assessment Strategies</h3>
+            
+            <h4>Throughout-Lecture Checks</h4>
+            <ul>
+                <li><strong>Constitutional Foundation Quiz:</strong> Quick review of Progress Clause purpose</li>
+                <li><strong>Case Application Scenarios:</strong> Apply fair use four factors to literature examples</li>
+                <li><strong>Citation Practice:</strong> Format major cases correctly using Bluebook style</li>
+                <li><strong>Synthesis Questions:</strong> Connect legal principles to literary analysis methods</li>
+            </ul>
+            
+            <h4>Interactive Assessment Tools</h4>
+            <ul>
+                <li><strong>Polling questions:</strong> Real-time comprehension checks</li>
+                <li><strong>Scenario analysis:</strong> Small group problem-solving</li>
+                <li><strong>Discussion participation:</strong> Quality of legal reasoning in responses</li>
+                <li><strong>Application exercises:</strong> Transfer principles to new situations</li>
+            </ul>
+        </div>
+
+        <div class="pedagogy-box">
+            <h3>🎓 Summative Assessment Options</h3>
+            
+            <h4>For Follow-Up Assignments (Optional)</h4>
+            <ol>
+                <li><strong>Copyright Issue Memo:</strong> Students identify and analyze copyright issues in their own thesis work</li>
+                <li><strong>Fair Use Analysis:</strong> Detailed four-factor analysis of a literary scenario</li>
+                <li><strong>Comparative Law Essay:</strong> US vs. international copyright approaches for literature</li>
+                <li><strong>Policy Recommendation:</strong> Propose copyright reform for academic/literary benefit</li>
+            </ol>
+            
+            <h4>Assessment Rubric Categories</h4>
+            <ul>
+                <li><strong>Legal accuracy:</strong> Correct understanding of constitutional and statutory principles</li>
+                <li><strong>Application skills:</strong> Ability to apply legal framework to novel scenarios</li>
+                <li><strong>Critical analysis:</strong> Evaluation of policy choices and their consequences</li>
+                <li><strong>Professional communication:</strong> Clear, precise legal reasoning and citation</li>
+            </ul>
+        </div>
+
+        <div class="literature-integration">
+            <h3>📖 Literature-Specific Assessment</h3>
+            
+            <h4>Integration Assessment Approaches</h4>
+            <ul>
+                <li><strong>Interdisciplinary synthesis:</strong> Connect copyright principles to literary theory</li>
+                <li><strong>Cultural analysis:</strong> Evaluate copyright's impact on literary culture</li>
+                <li><strong>Historical perspective:</strong> Trace copyright's evolution alongside literary movements</li>
+                <li><strong>Future orientation:</strong> Predict copyright challenges for emerging literary forms</li>
+            </ul>
+            
+            <h4>Professional Preparation Assessment</h4>
+            <ul>
+                <li><strong>Career scenario analysis:</strong> Apply copyright knowledge to publishing industry situations</li>
+                <li><strong>Client counseling simulation:</strong> Advise fictional clients on copyright issues</li>
+                <li><strong>Policy advocacy:</strong> Argue for copyright reforms that benefit literary culture</li>
+                <li><strong>Research methodology:</strong> Demonstrate ability to find and cite relevant copyright authorities</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>🎓 Final Teaching Notes & Best Practices</h2>
+        
+        <div class="pedagogy-box">
+            <h3>🎯 Guest Lecture Success Factors</h3>
+            
+            <h4>Establishing Credibility & Connection</h4>
+            <ul>
+                <li><strong>Literature credentials:</strong> Mention your engagement with literary texts and culture</li>
+                <li><strong>Legal expertise:</strong> Reference practical experience with copyright issues</li>
+                <li><strong>Teaching approach:</strong> Acknowledge this is interdisciplinary, not traditional law school</li>
+                <li><strong>Student relevance:</strong> Connect every major point to literature student concerns</li>
+            </ul>
+            
+            <h4>Managing Guest Lecture Dynamics</h4>
+            <ul>
+                <li><strong>Energy management:</strong> Start high, maintain through breaks, finish strong</li>
+                <li><strong>Time flexibility:</strong> Be prepared to adjust if discussions run long</li>
+                <li><strong>Question handling:</strong> Encourage questions throughout, not just at end</li>
+                <li><strong>Follow-up accessibility:</strong> Provide clear contact information for continued discussion</li>
+            </ul>
+        </div>
+
+        <div class="legal-accuracy-box">
+            <h3>⚖️ Legal Accuracy Maintenance</h3>
+            
+            <h4>Current Law Updates</h4>
+            <ul>
+                <li><strong>Pending litigation:</strong> Check status of major AI copyright cases before lecture</li>
+                <li><strong>Recent decisions:</strong> Review any new Supreme Court or circuit decisions</li>
+                <li><strong>Legislative developments:</strong> Note any proposed copyright reforms</li>
+                <li><strong>International changes:</strong> Major treaty or national law modifications</li>
+            </ul>
+            
+            <h4>Precision in Communication</h4>
+            <ul>
+                <li><strong>Qualifying language:</strong> Use "generally," "typically," "in most circuits" when appropriate</li>
+                <li><strong>Jurisdiction clarity:</strong> Specify when discussing federal vs. state law</li>
+                <li><strong>Currency acknowledgment:</strong> Note when law is developing or unsettled</li>
+                <li><strong>Source attribution:</strong> Always cite the court and year for major holdings</li>
+            </ul>
+        </div>
+
+        <div class="academic-standards-box">
+            <h3>📊 Maintaining Academic Standards</h3>
+            
+            <h4>Scholarly Rigor in Accessible Format</h4>
+            <ul>
+                <li><strong>Primary sources:</strong> Always reference original constitutional and statutory text</li>
+                <li><strong>Historical context:</strong> Explain how legal principles developed over time</li>
+                <li><strong>Comparative perspective:</strong> Include international and comparative law insights</li>
+                <li><strong>Policy analysis:</strong> Address underlying policy choices and their consequences</li>
+            </ul>
+            
+            <h4>Professional Development Integration</h4>
+            <ul>
+                <li><strong>Career relevance:</strong> Connect every major concept to professional applications</li>
+                <li><strong>Skill development:</strong> Emphasize transferable analytical skills</li>
+                <li><strong>Network building:</strong> Position yourself as ongoing resource for career questions</li>
+                <li><strong>Further learning:</strong> Provide pathways for students who want deeper engagement</li>
+            </ul>
+        </div>
+
+        <div class="literature-integration">
+            <h3>📖 Literature Integration Best Practices</h3>
+            
+            <h4>Authentic Literature Connections</h4>
+            <ul>
+                <li><strong>Avoid forced connections:</strong> Use literature examples only when genuinely relevant</li>
+                <li><strong>Student expertise:</strong> Draw on students' literary knowledge and interests</li>
+                <li><strong>Cultural context:</strong> Position copyright within broader cultural and literary conversations</li>
+                <li><strong>Future orientation:</strong> Help students see how copyright shapes literary culture going forward</li>
+            </ul>
+        </div>
+
+        <div class="discussion-prompt">
+            <h3>🎯 Final Reflection Prompt</h3>
+            <p><strong>End with this synthesis question:</strong></p>
+            <p>"As future professionals who understand both literature and law, how will you help shape the copyright system to better serve both creators and culture? What role should copyright play in preserving and promoting literary heritage while enabling innovation and access?"</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>📋 Quick Reference: Updated Section Structure</h2>
+        
+        <div class="new-update">
+            <h5>New 12-Section Structure (Sections 0-11)</h5>
+            <ul>
+                <li><strong>Section 0:</strong> Learning Objectives (NEW - 8-10 min)</li>
+                <li><strong>Section 1:</strong> Pre-Class Readings & Resources (7 min)</li>
+                <li><strong>Section 2:</strong> Introduction to Intellectual Property (15 min)</li>
+                <li><strong>Section 3:</strong> Constitutional Foundation (15 min)</li>
+                <li><strong>Section 4:</strong> International Copyright (10 min)</li>
+                <li><strong>Section 5:</strong> IP Landscape Overview (15 min)</li>
+                <li><strong>Section 6:</strong> Copyright Fundamentals (25 min)</li>
+                <li><strong>Section 7:</strong> Idea vs. Expression (15 min)</li>
+                <li><strong>Section 8:</strong> Fair Use in Literary Context (30 min)</li>
+                <li><strong>Section 9:</strong> Technology & Authorship (15 min)</li>
+                <li><strong>Section 10:</strong> AI & Modern Copyright Challenges (15 min)</li>
+                <li><strong>Section 11:</strong> Practice Applications & Future Challenges (10 min)</li>
+            </ul>
+        </div>
+
+        <h3>🔧 Technology Integration</h3>
+        <ul>
+            <li><strong>Interactive slides:</strong> All sections include engagement prompts</li>
+            <li><strong>Real-time polling:</strong> Use classroom response systems for active participation</li>
+            <li><strong>Digital resources:</strong> Links to all cases and statutes for easy access</li>
+            <li><strong>Mobile compatibility:</strong> Students can follow along on devices</li>
+        </ul>
+
+        <h3>📚 Resource Recommendations</h3>
+        <ul>
+            <li><strong>Further reading:</strong> Provide additional sources for interested students</li>
+            <li><strong>Professional development:</strong> Law school information and IP law career paths</li>
+            <li><strong>Current events:</strong> Ongoing copyright cases and legislative developments</li>
+            <li><strong>Digital tools:</strong> Copyright duration calculators and fair use evaluators</li>
+        </ul>
+    </div>
+</body>
+</html>

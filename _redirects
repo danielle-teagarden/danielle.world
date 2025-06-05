@@ -1,3 +1,11 @@
-# Redirect to the piano player deployment
+# Presentations - Date-based structure
+/presentations/2025/0605/copyright-law/* /presentations/2025/0605/copyright-law/:splat 200
+/presentations/2025/* /presentations/2025/:splat 200
+/presentations/* /presentations/:splat 200
+
+# Legacy redirects for presentations
+/copyright-law/* /presentations/2025/0605/copyright-law/:splat 301
+
+# Projects
 /projects/open-music-tools/classical-piano-player/* https://classical-piano-player.netlify.app/:splat 200
 /projects/open-music-tools/classical-piano-player https://classical-piano-player.netlify.app/ 200
