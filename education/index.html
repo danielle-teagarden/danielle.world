@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educational Materials - Danielle M. Teagarden</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23667eea'/><text x='50' y='70' font-size='50' text-anchor='middle' fill='white'>📚</text></svg>">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .nav-breadcrumb {
+            margin-bottom: 2rem;
+        }
+
+        .nav-breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .nav-breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #4c51bf;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 3rem;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .content-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 5px solid #667eea;
+        }
+
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        .content-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #4c51bf;
+            margin-bottom: 0.5rem;
+        }
+
+        .content-status {
+            font-size: 0.9rem;
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .content-description {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .content-link {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s ease;
+            margin-right: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .content-link:hover {
+            background: #5a67d8;
+        }
+
+        .content-link.secondary {
+            background: #e2e8f0;
+            color: #4a5568;
+        }
+
+        .content-link.secondary:hover {
+            background: #cbd5e0;
+        }
+
+        .footer {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #e2e8f0;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 1rem;
+                padding: 2rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="nav-breadcrumb">
+            <a href="/">← danielle.world</a>
+        </nav>
+        
+        <h1>Educational Materials</h1>
+        <p class="subtitle">Course content development and teaching resources</p>
+        
+        <div class="content-grid">
+            <div class="content-card">
+                <h3 class="content-title">Copyright Law</h3>
+                <p class="content-status">In Development</p>
+                <p class="content-description">
+                    Comprehensive copyright law curriculum covering constitutional foundations, 
+                    fair use, AI authorship, and modern enforcement challenges. Includes interactive 
+                    elements and accessibility features.
+                </p>
+                <a href="/education/copyright-law/" class="content-link">View Materials</a>
+                <a href="/presentations/" class="content-link secondary">See Presentations</a>
+            </div>
+            
+            <div class="content-card">
+                <h3 class="content-title">Legal Technology Ethics</h3>
+                <p class="content-status">Planning Phase</p>
+                <p class="content-description">
+                    Exploring ethical considerations in legal technology adoption, AI bias in 
+                    legal systems, and professional responsibility in the digital age.
+                </p>
+                <a href="#" class="content-link secondary">Coming Soon</a>
+            </div>
+        </div>
+        
+        <footer class="footer">
+            <p>Educational materials are developed with accessibility and open education principles.</p>
+            <p>Licensed under <a href="https://creativecommons.org/licenses/by/4.0/" style="color: #667eea;">CC BY 4.0</a> unless otherwise noted.</p>
+        </footer>
+    </div>
+</body>
+</html>

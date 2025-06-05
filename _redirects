@@ -1,10 +1,18 @@
+# Open Legal Tools - Standalone utilities
+/open-legal-tools/public-domain-calculator/* /open-legal-tools/public-domain-calculator/:splat 200
+/open-legal-tools/* /open-legal-tools/:splat 200
+
+# Education - Development/working area  
+/education/* /education/:splat 200
+
 # Presentations - Date-based structure
 /presentations/2025/0605/copyright-law/* /presentations/2025/0605/copyright-law/:splat 200
 /presentations/2025/* /presentations/2025/:splat 200
 /presentations/* /presentations/:splat 200
 
-# Legacy redirects for presentations
+# Legacy redirects
 /copyright-law/* /presentations/2025/0605/copyright-law/:splat 301
+/public-domain-calculator/* /open-legal-tools/public-domain-calculator/:splat 301
 
 # Projects
 /projects/open-music-tools/classical-piano-player/* https://classical-piano-player.netlify.app/:splat 200
