@@ -422,8 +422,84 @@
             transform: scale(1.1);
         }
 
+        /* Image Modal Styles */
+        .image-modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .image-modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .image-modal-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            margin: auto;
+            animation: zoomIn 0.3s ease;
+        }
+
+        .image-modal-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s ease;
+        }
+
+        .image-modal-close:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        #modalImage {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        #modalCaption {
+            color: white;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            text-align: center;
+            margin-top: 10px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
         @media print {
-            .header-toggle, .print-button, .quick-toc, .progress-bar {
+            .header-toggle, .print-button, .quick-toc, .progress-bar, .image-modal {
                 display: none !important;
             }
             
@@ -1059,7 +1135,7 @@
             <h1>Copyright Law: From Constitutional Foundation to Modern Challenges</h1>
             <p>Guest Lecture for Law & Literature | Summer 2025 | 2.5-Hour Interactive Session</p>
             <p style="font-size: 0.9rem; margin-top: 0.5rem; color: #4a5568;">
-                <strong>Danielle M. Teagarden</strong> • 
+                <a href="#" onclick="showAbout()" style="color: #667eea; text-decoration: none; font-weight: 600; cursor: pointer;" title="About the instructor">Danielle M. Teagarden</a> • 
                 <a href="https://github.com/danielle-teagarden" target="_blank" rel="noopener noreferrer" style="color: #667eea; text-decoration: none;">GitHub</a> • 
                 <a href="https://linkedin.com/in/teagarden" target="_blank" rel="noopener noreferrer" style="color: #667eea; text-decoration: none;">LinkedIn</a> • 
                 <a href="https://github.com/open-legal-tools" target="_blank" rel="noopener noreferrer" style="color: #667eea; text-decoration: none;">Open Legal Tools</a>
@@ -1087,6 +1163,70 @@
         </header>
 
         <main class="content" id="main-content" tabindex="-1">
+            <!-- About Section -->
+            <section class="section" id="about-section" aria-labelledby="about-instructor">
+                <h2 id="about-instructor">👋 About the Instructor</h2>
+                
+                <div style="background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); padding: 30px; border-radius: 16px; margin: 2rem 0; border: 2px solid #e2e8f0;">
+                    <div style="display: flex; gap: 30px; align-items: flex-start; flex-wrap: wrap;">
+                        <div style="flex: 1; min-width: 300px;">
+                            <h3 style="color: #667eea; margin-bottom: 15px;">From Copywriter to Copyrighter</h3>
+                            
+                            <div style="background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 20px;">
+                                <h4 style="color: #4a5568; margin-bottom: 10px;">🎵 Music & Technology Background</h4>
+                                <ul style="margin: 0; padding-left: 20px; color: #4a5568;">
+                                    <li><strong>Northeast Indiana native</strong> with IU Bloomington English degree</li>
+                                    <li><strong>Musician:</strong> Piano, guitar, and songwriter</li>
+                                    <li><strong>Sweetwater.com:</strong> Booked software demo tours and worked as marketing copywriter</li>
+                                    <li><strong>The IP connection:</strong> Interest in copyright sparked the law school journey</li>
+                                </ul>
+                            </div>
+                            
+                            <div style="background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 20px;">
+                                <h4 style="color: #4a5568; margin-bottom: 10px;">⚖️ Legal Practice</h4>
+                                <ul style="margin: 0; padding-left: 20px; color: #4a5568;">
+                                    <li><strong>Seattle practice:</strong> Startup craft breweries (business, regulatory, IP)</li>
+                                    <li><strong>Trademark focus:</strong> "That's where the money was" + copyright work</li>
+                                    <li><strong>Creative clients:</strong> Graphic designers, bloggers, content creators</li>
+                                    <li><strong>Current role:</strong> Judicial law clerk, Indiana Court of Appeals</li>
+                                </ul>
+                            </div>
+                            
+                            <div style="background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                                <h4 style="color: #4a5568; margin-bottom: 10px;">💻 Legal Tech Development</h4>
+                                <ul style="margin: 0; padding-left: 20px; color: #4a5568;">
+                                    <li><strong>Mission:</strong> Making law accessible for everyone</li>
+                                    <li><strong>Deployed tools:</strong> <a href="https://danielle-teagarden.github.io/public-domain-calculator/" target="_blank" style="color: #667eea;">Public Domain Calculator</a>, <a href="https://danielle.world/projects/open-music-tools/classical-piano-player/" target="_blank" style="color: #667eea;">Classical Piano Player</a> (Stanford SERPA piano rolls + Yamaha C5 samples)</li>
+                                    <li><strong>In development:</strong> Larger-scale legal tech projects involving PDF workflows and AI & machine learning (learning solo dev is a fun, recursive journey—much like the writing process)</li>
+                                    <li><strong>AI collaboration:</strong> From rookie developer to better coder with AI as tutor and pair programmer</li>
+                                    <li><strong>Teaching:</strong> Adjunct professor + legal tech startup experience</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div style="flex: 0 0 250px; text-align: center;">
+                            <div style="background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                                <div style="font-size: 4rem; margin-bottom: 15px;">🎵⚖️💻</div>
+                                <h4 style="color: #667eea; margin-bottom: 15px;">The Intersection</h4>
+                                <p style="font-size: 0.9rem; color: #4a5568; margin: 0;">Where music creativity meets legal precision and technology innovation</p>
+                                
+                                <div style="margin-top: 20px; padding: 15px; background: #f0f9ff; border-radius: 8px;">
+                                    <p style="font-size: 0.85rem; color: #3b82f6; margin: 0; font-style: italic;">
+                                        "Happy to talk about software development, AI collaboration, or anything at the intersection of law and technology! Solo dev is a wonderfully recursive journey—learning, building, refining—much like the writing process."
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 25px;">
+                        <button onclick="showSection(0)" style="background: #667eea; color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-size: 0.9rem;">
+                            ← Back to Presentation
+                        </button>
+                    </div>
+                </div>
+            </section>
+
             <!-- Section 0: Learning Objectives -->
             <section class="section active" aria-labelledby="learning-objectives">
                 <h2 id="learning-objectives">🎯 Learning Objectives</h2>
@@ -1480,10 +1620,12 @@
                         <div style="display: flex; gap: 20px; align-items: flex-start; margin: 1.5rem 0; flex-wrap: wrap;">
                             <div style="flex: 0 0 200px; text-align: center;">
                                 <div style="position: relative; display: inline-block;">
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/James_Dean_in_Rebel_Without_a_Cause.jpg/256px-James_Dean_in_Rebel_Without_a_Cause.jpg"
+                                    <img src="images/James_Dean_in_Rebel_Without_a_Cause.jpg"
                                          alt="James Dean in Rebel Without a Cause - publicity still, public domain"
                                          loading="lazy"
-                                         style="width: 180px; height: auto; border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.15); border: 3px solid white;">
+                                         style="width: 180px; height: auto; border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.15); border: 3px solid white; cursor: pointer;"
+                                         onclick="openImageModal(this)"
+                                         title="Click to enlarge">
                                     <div style="position: absolute; top: -10px; right: -10px; background: #f59e0b; color: white; padding: 5px 10px; border-radius: 20px; font-size: 0.8rem; font-weight: bold;">1931-1955</div>
                                 </div>
                                 <div style="margin-top: 10px; font-size: 0.8rem; color: #6b7280;">
@@ -1686,19 +1828,14 @@
                 <div class="interactive-element">
                     <div class="question">🤔 Constitutional Analysis Challenge</div>
                     <p><strong>Thinking Question:</strong> If Indiana passed a law saying that copyright in songs by Indiana artists lasts 200 years instead of the federal life+70 rule, would this law be constitutional? Why or why not?</p>
-                    <div class="reveal-answer" onclick="toggleAnswer('constitutional-preemption')">
-                        <button class="reveal-btn">💡 Click to Reveal Analysis</button>
-                        <div id="constitutional-preemption" class="answer" style="display: none;">
-                            <p><strong>Answer:</strong> No, this law would be unconstitutional due to federal preemption.</p>
-                            <p><strong>Analysis:</strong></p>
-                            <ul>
-                                <li>The Copyright Clause gives Congress exclusive power over copyright duration</li>
-                                <li>Federal copyright law preempts state laws that grant "equivalent rights"</li>
-                                <li>The Supremacy Clause makes federal law supreme when it conflicts with state law</li>
-                                <li>States can protect rights that are different from copyright (like right of publicity) but cannot extend copyright itself</li>
-                            </ul>
-                        </div>
-                    </div>
+                    <p><strong>Key Legal Concepts to Consider:</strong></p>
+                    <ul style="padding-left: 20px;">
+                        <li>The Copyright Clause gives Congress exclusive power over copyright duration</li>
+                        <li>Federal copyright law preempts state laws that grant "equivalent rights"</li>
+                        <li>The Supremacy Clause makes federal law supreme when it conflicts with state law</li>
+                        <li>States can protect rights that are different from copyright (like right of publicity) but cannot extend copyright itself</li>
+                    </ul>
+                    <div class="timer">Constitutional preemption analysis - 5 minutes</div>
                 </div>
 
                 <h3>⏱️ The Term Disparity: Why Copyright Lasts So Much Longer Than Patents</h3>
@@ -1866,6 +2003,36 @@
                     </div>
                     
                     <p><strong>Examples they'd recognize:</strong> Shakespeare's works (public domain) → countless adaptations. Biblical stories (public domain) → endless retellings. Folk tales (public domain) → Disney's early success!</p>
+                    
+                    <div style="display: flex; gap: 20px; align-items: center; margin: 20px 0; flex-wrap: wrap; justify-content: center;">
+                        <div style="text-align: center;">
+                            <img src="images/victor-hugo-portrait.jpg"
+                                 alt="Victor Hugo portrait - French author of Les Misérables and The Hunchback of Notre Dame"
+                                 loading="lazy"
+                                 style="width: 120px; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); cursor: pointer;"
+                                 onclick="openImageModal(this)"
+                                 title="Click to enlarge">
+                            <div style="font-size: 0.8rem; color: #6b7280; margin-top: 5px;">Victor Hugo<br><small>Public Domain</small></div>
+                        </div>
+                        <div style="text-align: center;">
+                            <img src="images/les-miserables-first-edition.jpg"
+                                 alt="Les Misérables first edition title page - classic French literature now in public domain"
+                                 loading="lazy"
+                                 style="width: 120px; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); cursor: pointer;"
+                                 onclick="openImageModal(this)"
+                                 title="Click to enlarge">
+                            <div style="font-size: 0.8rem; color: #6b7280; margin-top: 5px;">Les Misérables<br><small>First Edition (Public Domain)</small></div>
+                        </div>
+                        <div style="text-align: center;">
+                            <img src="images/penguin-1984-cover.jpg"
+                                 alt="1984 by George Orwell - Penguin Classics edition showing modern copyright protection"
+                                 loading="lazy"
+                                 style="width: 120px; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); cursor: pointer;"
+                                 onclick="openImageModal(this)"
+                                 title="Click to enlarge">
+                            <div style="font-size: 0.8rem; color: #6b7280; margin-top: 5px;">Orwell's 1984<br><small>Still Under Copyright</small></div>
+                        </div>
+                    </div>
                 </div>
 
 
@@ -1989,17 +2156,23 @@
                                 <h4>🎵 The Steamboat Willie Story</h4>
                                 <ul>
                                     <li><strong>Created:</strong> 1928 by Walt Disney Studios</li>
-                                    <li><strong>Featured Music:</strong> "Steamboat Bill" (1910 song by Arthur Collins)</li>
-                                    <li><strong>Legal Foundation:</strong> Disney relied on copyright law when creating this work</li>
-                                    <li><strong>The Social Contract:</strong> Disney got protection under the law in effect at the time—originally 28 years with renewal option</li>
-                                    <li><strong>Extensions Received:</strong> Benefited from every major copyright extension since 1928</li>
-                                    <li><strong>Final Status:</strong> Public domain as of January 1, 2024 (only the 1928 version—modern Mickey still protected)</li>
+                                    <li><strong>Featured Music:</strong> "Steamboat Bill" (1910 song by Ren Shields & Leighton Brothers)</li>
+                                    <li><strong>Copyright Irony:</strong> Disney used the song <em>without permission</em>—it was still under copyright in 1928!</li>
+                                    <li><strong>The Twist:</strong> Song entered public domain in 1939 (no renewal filed) - 11 years after Disney's unauthorized use</li>
+                                    <li><strong>No Consequences:</strong> Publishers never sued; weak enforcement in early animation era</li>
+                                    <li><strong>Historical Context:</strong> Disney built early success partly through unauthorized use of copyrighted material</li>
+                                    <li><strong>Final Status:</strong> Steamboat Willie itself became public domain January 1, 2024</li>
                                 </ul>
                             </div>
                         </div>
                         <div style="flex: 0 0 300px;">
                             <div style="border: 3px solid #0ea5e9; border-radius: 12px; padding: 15px; background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); text-align: center;">
-                                <div style="font-size: 3rem; margin-bottom: 10px;">🎬</div>
+                                <img src="images/Steamboat-Willie.webp"
+                                     alt="Steamboat Willie - 1928 Disney cartoon featuring Mickey Mouse, now in public domain"
+                                     loading="lazy"
+                                     style="width: 100%; max-width: 250px; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); cursor: pointer; margin-bottom: 10px;"
+                                     onclick="openImageModal(this)"
+                                     title="Click to enlarge">
                                 <h4 style="color: #0369a1; margin-bottom: 10px;">Steamboat Willie Timeline</h4>
                                 <div style="text-align: left; font-size: 0.9rem;">
                                     <div style="margin: 8px 0; padding: 5px; background: rgba(255,255,255,0.7); border-radius: 4px;">
@@ -2023,13 +2196,52 @@
                     </div>
                     
                     <p><strong>Constitutional Questions for Discussion:</strong></p>
-                    <ul>
+                    <ul style="padding-left: 20px;">
                         <li>Was it fair to extend copyright multiple times for works created under shorter terms?</li>
                         <li>How does the "social contract" theory apply—should creators rely on the law when they create?</li>
                         <li>Why is only the 1928 version public domain while modern Mickey remains protected?</li>
                         <li>Should Congress have the power to repeatedly extend copyright terms?</li>
                     </ul>
                     <div class="timer">Social contract & constitutional interpretation - 8 minutes</div>
+                </div>
+
+                <div class="case-box" style="border-left: 4px solid #f59e0b;">
+                    <h4>🔍 Deep Dive: The "Steamboat Bill" Copyright Research</h4>
+                    <p><strong>Recent Historical Research Reveals:</strong> Disney's use of "Steamboat Bill" was actually <span class="highlight">copyright infringement</span>—but one that had no legal consequences due to weak enforcement and industry practices of the era.</p>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 15px 0;">
+                        <div style="background: #fef3c7; padding: 15px; border-radius: 8px;">
+                            <h5 style="color: #d97706; margin-bottom: 10px;">📄 The Original Song (1910)</h5>
+                            <ul style="font-size: 0.9rem; margin: 0; padding-left: 20px;">
+                                <li><strong>Creators:</strong> Ren Shields (lyricist) & Leighton Brothers (composers)</li>
+                                <li><strong>Publisher:</strong> F.A. Mills, 122 West 36th Street, NYC</li>
+                                <li><strong>Copyright Notice:</strong> "Copyright 1910 by F.A. Mills"</li>
+                                <li><strong>Status in 1928:</strong> Still under copyright protection</li>
+                            </ul>
+                        </div>
+                        <div style="background: #fee2e2; padding: 15px; border-radius: 8px;">
+                            <h5 style="color: #dc2626; margin-bottom: 10px;">🚫 Disney's Unauthorized Use</h5>
+                            <ul style="font-size: 0.9rem; margin: 0; padding-left: 20px;">
+                                <li><strong>No licensing agreement</strong> found in archives</li>
+                                <li><strong>No payments</strong> to publishers or composers</li>
+                                <li><strong>Small studio practices:</strong> Informal approach to rights</li>
+                                <li><strong>Weak enforcement:</strong> Publishers didn't monitor animation</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div style="background: #f0f9ff; padding: 15px; border-radius: 8px; margin: 15px 0;">
+                        <h5 style="color: #3b82f6; margin-bottom: 10px;">📚 Historical Sources</h5>
+                        <ul style="margin: 0; padding-left: 20px; font-size: 0.9rem;">
+                            <li><strong>Sheet Music:</strong> <a href="https://repository.duke.edu/dc/hasm/a0180" target="_blank" style="color: #3b82f6;">Original 1910 score at Duke University</a></li>
+                            <li><strong>Historical Performance:</strong> <a href="https://www.youtube.com/watch?v=BBgghnQF6E4" target="_blank" style="color: #3b82f6;">Arthur Collins 1911 recording</a></li>
+                            <li><strong>Steamboat Willie:</strong> <a href="https://www.youtube.com/watch?v=A1p-NkZ__Bg" target="_blank" style="color: #3b82f6;">1928 Disney cartoon</a></li>
+                        </ul>
+                    </div>
+                    
+                    <p><strong>The Irony:</strong> Disney, now famous for aggressive copyright enforcement, built its early empire partly through unauthorized use of copyrighted material. "Steamboat Bill" entered the public domain in 1939 when publishers failed to file for renewal—but that was 11 years <em>after</em> Disney had already used it without permission.</p>
+                    
+                    <p><strong>Why No Lawsuit?</strong> The animation industry was new, enforcement was weak, and publishers like F.A. Mills weren't monitoring small animation studios. Only 24.45% of works were renewed in 1938, showing how many copyrighted works were abandoned.</p>
                 </div>
 
                 <h3>⚖️ Why "Lead with the Law" Matters</h3>
@@ -2864,7 +3076,7 @@
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
                             <div style="background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
                                 <h6 style="color: #dc2626; margin-bottom: 10px;">📚 Physical Goods</h6>
-                                <ul style="font-size: 0.9rem; margin: 0; color: #4a5568;">
+                                <ul style="font-size: 0.9rem; margin: 0; padding-left: 20px; color: #4a5568;">
                                     <li><strong>Rivalrous:</strong> Your use prevents mine</li>
                                     <li><strong>Marginal cost:</strong> Paper, ink, shipping</li>
                                     <li><strong>Degradation:</strong> Books wear out</li>
@@ -2873,7 +3085,7 @@
                             </div>
                             <div style="background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
                                 <h6 style="color: #16a34a; margin-bottom: 10px;">💻 Digital Goods</h6>
-                                <ul style="font-size: 0.9rem; margin: 0; color: #4a5568;">
+                                <ul style="font-size: 0.9rem; margin: 0; padding-left: 20px; color: #4a5568;">
                                     <li><strong>Non-rivalrous:</strong> We can both use the same file</li>
                                     <li><strong>Zero marginal cost:</strong> Perfect copies, instantly</li>
                                     <li><strong>No degradation:</strong> Perfect quality forever</li>
@@ -2957,7 +3169,9 @@
                                 <img src="images/romeo-juliet-1599-title.jpg"
                                      alt="Romeo and Juliet 1599 second quarto title page - original historical publication"
                                      loading="lazy"
-                                     style="width: 200px; height: 280px; object-fit: cover; border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.15); border: 3px solid white;">
+                                     style="width: 200px; height: 280px; object-fit: cover; border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.15); border: 3px solid white; cursor: pointer;"
+                                     onclick="openImageModal(this)"
+                                     title="Click to enlarge">
                                 <div style="position: absolute; top: -10px; right: -10px; background: #dc2626; color: white; padding: 5px 10px; border-radius: 20px; font-size: 0.8rem; font-weight: bold;">1599</div>
                             </div>
                             <div style="margin-top: 15px; padding: 15px; background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); max-width: 220px;">
@@ -2984,7 +3198,9 @@
                                 <img src="images/west-side-story-1961-poster.jpg"
                                      alt="West Side Story 1961 film poster - derivative work based on Romeo and Juliet"
                                      loading="lazy"
-                                     style="width: 200px; height: 280px; object-fit: cover; border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.15); border: 3px solid white;">
+                                     style="width: 200px; height: 280px; object-fit: cover; border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.15); border: 3px solid white; cursor: pointer;"
+                                     onclick="openImageModal(this)"
+                                     title="Click to enlarge">
                                 <div style="position: absolute; top: -10px; right: -10px; background: #3b82f6; color: white; padding: 5px 10px; border-radius: 20px; font-size: 0.8rem; font-weight: bold;">1961</div>
                             </div>
                             <div style="margin-top: 15px; padding: 15px; background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); max-width: 220px;">
@@ -3235,7 +3451,9 @@
                                 <img src="images/oscar-wilde-sarony-1882.jpg"
                                      alt="Oscar Wilde, full-length portrait photograph by Napoleon Sarony, 1882"
                                      loading="lazy"
-                                     style="width: 280px; height: auto; border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.2); border: 4px solid white;">
+                                     style="width: 280px; height: auto; border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.2); border: 4px solid white; cursor: pointer;"
+                                     onclick="openImageModal(this)"
+                                     title="Click to enlarge">
                                 <div style="position: absolute; top: -15px; left: -15px; background: #8b5cf6; color: white; padding: 8px 15px; border-radius: 25px; font-size: 0.9rem; font-weight: bold; box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);">
                                     📸 Copyright Case #1
                                 </div>
@@ -3433,7 +3651,7 @@
                             </div>
                             <div style="background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
                                 <h5 style="color: #dc2626; margin-bottom: 10px;">⚙️ Industrial Age Copying</h5>
-                                <ul style="text-align: left; font-size: 0.9rem; margin: 0; color: #4a5568;">
+                                <ul style="text-align: left; font-size: 0.9rem; margin: 0; padding-left: 20px; color: #4a5568;">
                                     <li><strong>High cost:</strong> Expensive machinery, skilled operators</li>
                                     <li><strong>High barrier:</strong> Need printing house, distribution</li>
                                     <li><strong>Physical limits:</strong> Paper, ink, shipping costs</li>
@@ -3465,7 +3683,7 @@
                             </div>
                             <div style="background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
                                 <h5 style="color: #16a34a; margin-bottom: 10px;">💻 Digital Age Copying</h5>
-                                <ul style="text-align: left; font-size: 0.9rem; margin: 0; color: #4a5568;">
+                                <ul style="text-align: left; font-size: 0.9rem; margin: 0; padding-left: 20px; color: #4a5568;">
                                     <li><strong>Zero cost:</strong> Click "Clone" - instant perfect copy</li>
                                     <li><strong>No barriers:</strong> Anyone with internet access</li>
                                     <li><strong>No physical limits:</strong> Unlimited distribution</li>
@@ -3581,10 +3799,27 @@
                 <h3>⚖️ Current Legal Landscape</h3>
                 <div class="case-box">
                     <h4>🚫 Thaler v. Perlmutter (2023) - AI Cannot Be Author</h4>
-                    <p><strong>Legal Citation:</strong> Thaler v. Perlmutter, 681 F. Supp. 3d 1062 (D.D.C. 2023)</p>
-                    <p><strong>Facts:</strong> Stephen Thaler tried to register copyright for art created by AI with no human input.</p>
-                    <p><strong>Holding:</strong> Copyright Office correctly rejected application - <span class="highlight">only humans can be authors</span> under current law and U.S. Const. art. I, § 8, cl. 8.</p>
-                    <p><strong>But note:</strong> This case involved <em>no human creative input</em>. Different question when humans direct AI.</p>
+                    <div style="display: flex; gap: 20px; align-items: flex-start; flex-wrap: wrap;">
+                        <div style="flex: 1; min-width: 300px;">
+                            <p><strong>Legal Citation:</strong> Thaler v. Perlmutter, 681 F. Supp. 3d 1062 (D.D.C. 2023)</p>
+                            <p><strong>Facts:</strong> Stephen Thaler tried to register copyright for art created by AI with no human input.</p>
+                            <p><strong>Holding:</strong> Copyright Office correctly rejected application - <span class="highlight">only humans can be authors</span> under current law and U.S. Const. art. I, § 8, cl. 8.</p>
+                            <p><strong>But note:</strong> This case involved <em>no human creative input</em>. Different question when humans direct AI.</p>
+                        </div>
+                        <div style="flex: 0 0 250px; text-align: center;">
+                            <img src="images/Recent-Entrance-To-Paradise-Thaler.webp"
+                                 alt="A Recent Entrance to Paradise - AI-generated artwork by Stephen Thaler's Creativity Machine"
+                                 loading="lazy"
+                                 style="width: 100%; max-width: 250px; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); cursor: pointer;"
+                                 onclick="openImageModal(this)"
+                                 title="Click to enlarge">
+                            <div style="margin-top: 10px; font-size: 0.9rem; color: #6b7280;">
+                                <strong>"A Recent Entrance to Paradise"</strong><br>
+                                Created by Creativity Machine AI<br>
+                                <small>Copyright registration denied</small>
+                            </div>
+                        </div>
+                    </div>
                     
                     <div class="example-box" style="background: #f0f9ff; margin-top: 1rem;">
                         <h5>📖 Literature Connection: The Human Authorship Tradition</h5>
@@ -3643,10 +3878,26 @@
 
                 <div class="case-box" style="border-left: 4px solid #7c3aed;">
                     <h4>🎨 Test Case: Jason Allen's "Théâtre D'Opéra Spatial"</h4>
-                    <p><strong>Facts:</strong> Allen used <span class="highlight">624 prompts over 114+ hours</span> to create award-winning art via Midjourney AI.</p>
-                    <p><strong>Agency Analysis:</strong> Extensive prompting, iteration, and selection = strong creative control comparable to Sarony directing Oscar Wilde photograph.</p>
-                    <p><strong>Copyright Office:</strong> Denied registration (AI cannot be author)</p>
-                    <p><strong>Current status:</strong> <em>Allen v. Perlmutter</em> litigation ongoing - first major test of human-AI authorship theory</p>
+                    <div style="display: flex; gap: 20px; align-items: flex-start; flex-wrap: wrap;">
+                        <div style="flex: 1; min-width: 300px;">
+                            <p><strong>Facts:</strong> Allen used <span class="highlight">624 prompts over 114+ hours</span> to create award-winning art via Midjourney AI.</p>
+                            <p><strong>Agency Analysis:</strong> Extensive prompting, iteration, and selection = strong creative control comparable to Sarony directing Oscar Wilde photograph.</p>
+                            <p><strong>Copyright Office:</strong> Denied registration (AI cannot be author)</p>
+                            <p><strong>Current status:</strong> <em>Allen v. Perlmutter</em> litigation ongoing - first major test of human-AI authorship theory</p>
+                        </div>
+                        <div style="flex: 0 0 300px; text-align: center;">
+                            <img src="images/AI-Copyright-Théâtre_d'Opéra_Spatial-Culture.webp"
+                                 alt="Théâtre D'Opéra Spatial - AI-generated artwork by Jason Allen that won first place at the Colorado State Fair"
+                                 loading="lazy"
+                                 style="width: 100%; max-width: 300px; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); cursor: pointer;"
+                                 onclick="openImageModal(this)"
+                                 title="Click to enlarge">
+                            <div style="margin-top: 10px; font-size: 0.9rem; color: #6b7280;">
+                                <strong>Théâtre D'Opéra Spatial</strong><br>
+                                First place winner, Colorado State Fair
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <h3>📝 Alternative Theory: Prompt as Copyrightable Expression</h3>
@@ -4048,7 +4299,7 @@
                                 <div style="font-size: 2.5rem; margin-bottom: 10px;">📺</div>
                                 <h5 style="color: #dc2626; margin: 0;">YouTube</h5>
                             </div>
-                            <ul style="font-size: 0.9rem; margin: 0; color: #4a5568;">
+                            <ul style="font-size: 0.9rem; margin: 0; padding-left: 20px; color: #4a5568;">
                                 <li><strong>System:</strong> Content ID + manual DMCA</li>
                                 <li><strong>Approach:</strong> Hyper-aggressive (monetize/block)</li>
                                 <li><strong>Appeals:</strong> Complex multi-tier system</li>
@@ -4062,7 +4313,7 @@
                                 <div style="font-size: 2.5rem; margin-bottom: 10px;">📱</div>
                                 <h5 style="color: #3b82f6; margin: 0;">TikTok</h5>
                             </div>
-                            <ul style="font-size: 0.9rem; margin: 0; color: #4a5568;">
+                            <ul style="font-size: 0.9rem; margin: 0; padding-left: 20px; color: #4a5568;">
                                 <li><strong>System:</strong> Audio fingerprinting + AI detection</li>
                                 <li><strong>Approach:</strong> Moderate (mute audio, reduce reach)</li>
                                 <li><strong>Appeals:</strong> Streamlined but limited</li>
@@ -4076,7 +4327,7 @@
                                 <div style="font-size: 2.5rem; margin-bottom: 10px;">🔗</div>
                                 <h5 style="color: #8b5cf6; margin: 0;">Twitch</h5>
                             </div>
-                            <ul style="font-size: 0.9rem; margin: 0; color: #4a5568;">
+                            <ul style="font-size: 0.9rem; margin: 0; padding-left: 20px; color: #4a5568;">
                                 <li><strong>System:</strong> Post-hoc DMCA + live monitoring</li>
                                 <li><strong>Approach:</strong> Reactive (delete VODs, warn users)</li>
                                 <li><strong>Appeals:</strong> Standard DMCA counter-notice</li>
@@ -4090,7 +4341,7 @@
                                 <div style="font-size: 2.5rem; margin-bottom: 10px;">📷</div>
                                 <h5 style="color: #16a34a; margin: 0;">Instagram</h5>
                             </div>
-                            <ul style="font-size: 0.9rem; margin: 0; color: #4a5568;">
+                            <ul style="font-size: 0.9rem; margin: 0; padding-left: 20px; color: #4a5568;">
                                 <li><strong>System:</strong> Audio matching + visual recognition</li>
                                 <li><strong>Approach:</strong> Mixed (block, monetize, limit reach)</li>
                                 <li><strong>Appeals:</strong> Simplified through Meta systems</li>
@@ -4153,7 +4404,7 @@
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
                         <div style="background: white; padding: 15px; border-radius: 8px; border-left: 4px solid #16a34a;">
                             <h6 style="color: #16a34a; margin-bottom: 8px;">✅ What Makes This Valid</h6>
-                            <ul style="font-size: 0.85rem; margin: 0; color: #15803d;">
+                            <ul style="font-size: 0.85rem; margin: 0; padding-left: 20px; color: #15803d;">
                                 <li>Identifies specific copyrighted work</li>
                                 <li>Locates exact infringing material</li>
                                 <li>Includes all required statements</li>
@@ -4162,7 +4413,7 @@
                         </div>
                         <div style="background: white; padding: 15px; border-radius: 8px; border-left: 4px solid #dc2626;">
                             <h6 style="color: #dc2626; margin-bottom: 8px;">⚠️ Common Problems</h6>
-                            <ul style="font-size: 0.85rem; margin: 0; color: #7f1d1d;">
+                            <ul style="font-size: 0.85rem; margin: 0; padding-left: 20px; color: #7f1d1d;">
                                 <li>Vague identification of works</li>
                                 <li>Missing contact information</li>
                                 <li>No good faith belief statement</li>
@@ -4549,6 +4800,15 @@
         </main>
     </div>
 
+    <!-- Image Modal -->
+    <div id="imageModal" class="image-modal" onclick="closeImageModal()">
+        <div class="image-modal-content">
+            <span class="image-modal-close" onclick="closeImageModal()">&times;</span>
+            <img id="modalImage" src="" alt="">
+            <div id="modalCaption"></div>
+        </div>
+    </div>
+
     <script>
         const sections = document.querySelectorAll('.section');
         const navBtns = document.querySelectorAll('.nav-btn');
@@ -4805,6 +5065,93 @@
                 hideTOC();
             }
         });
+
+        // Image Modal Functions
+        function openImageModal(imgElement) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            const caption = document.getElementById('modalCaption');
+            
+            modal.classList.add('show');
+            modalImg.src = imgElement.src;
+            modalImg.alt = imgElement.alt;
+            caption.innerHTML = imgElement.alt;
+            
+            // Prevent body scrolling when modal is open
+            document.body.style.overflow = 'hidden';
+            
+            // Close on Escape key
+            document.addEventListener('keydown', handleModalKeydown);
+        }
+
+        function closeImageModal() {
+            const modal = document.getElementById('imageModal');
+            modal.classList.remove('show');
+            
+            // Restore body scrolling
+            document.body.style.overflow = 'auto';
+            
+            // Remove escape key listener
+            document.removeEventListener('keydown', handleModalKeydown);
+        }
+
+        function handleModalKeydown(e) {
+            if (e.key === 'Escape') {
+                closeImageModal();
+            }
+        }
+
+        // Prevent modal close when clicking on image
+        document.addEventListener('DOMContentLoaded', function() {
+            const modalContent = document.querySelector('.image-modal-content');
+            if (modalContent) {
+                modalContent.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                });
+            }
+        });
+
+        // Show About section
+        function showAbout() {
+            // Hide all sections first
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show the about section
+            const aboutSection = document.getElementById('about-section');
+            if (aboutSection) {
+                aboutSection.classList.add('active');
+                
+                // Update progress bar to 0 when showing about
+                if (progressFill) {
+                    progressFill.style.width = '0%';
+                }
+                
+                // Update navigation buttons
+                navBtns.forEach(btn => btn.classList.remove('active'));
+                
+                // Announce section change to screen readers
+                const announcer = document.getElementById('section-announcer');
+                if (announcer) {
+                    announcer.textContent = 'Now showing: About the Instructor';
+                }
+                
+                // Focus management
+                const sectionHeader = aboutSection.querySelector('h2');
+                if (sectionHeader) {
+                    sectionHeader.setAttribute('tabindex', '-1');
+                    sectionHeader.focus();
+                    
+                    setTimeout(() => {
+                        sectionHeader.removeAttribute('tabindex');
+                    }, 1000);
+                }
+                
+                // Scroll to top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
 
         // Initialize
         document.addEventListener('DOMContentLoaded', function() {
