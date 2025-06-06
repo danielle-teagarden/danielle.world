@@ -83,14 +83,16 @@
             font-size: 0.9rem;
         }
 
-        .nav-btn:hover {
+        .nav-btn:hover:not(.active) {
             background: #5a67d8;
-            transform: translateY(-2px);
+            transform: translateY(-1px);
+            transition: all 0.2s ease;
         }
 
         .nav-btn.active {
             background: #4c51bf;
             box-shadow: 0 4px 15px rgba(76, 81, 191, 0.4);
+            transform: none;
         }
 
         .header-toggle {
@@ -1466,7 +1468,7 @@
 
             <!-- Section 1: Introduction to Intellectual Property -->
             <section class="section" aria-labelledby="ip-introduction">
-                <h2 id="ip-introduction">1. 🧠 Introduction to Intellectual Property: The Legal Landscape</h2>
+                <h2 id="ip-introduction">2. 🧠 Introduction to Intellectual Property: The Legal Landscape</h2>
                 
                 <div class="intro-text">
                     <p>Before diving into copyright specifics, let's understand the broader intellectual property ecosystem. We'll explore each type of protection through a storytelling lens, seeing how they evolved to meet different creative and business needs.</p>
@@ -1922,7 +1924,7 @@
 
             <!-- Section 2: Constitutional Foundation -->
             <section class="section" aria-labelledby="constitutional-foundation">
-                <h2 id="constitutional-foundation">2. 🏛️ Constitutional Foundation: Where It All Begins</h2>
+                <h2 id="constitutional-foundation">3. 🏛️ Constitutional Foundation: Where It All Begins</h2>
                 
                 <h3>🌍 Understanding the Public Domain</h3>
                 <div class="case-box">
@@ -2260,7 +2262,7 @@
 
             <!-- Section 2: International Copyright & Comparative Law -->
             <section class="section" aria-labelledby="international-copyright">
-                <h2 id="international-copyright">2. 🌍 International Copyright: Treaties & Comparative Approaches</h2>
+                <h2 id="international-copyright">4. 🌍 International Copyright: Treaties & Comparative Approaches</h2>
                 
                 <div class="intro-text">
                     <p>While the U.S. grounds copyright in its Constitution, most of the world follows an international treaty framework. Understanding these differences is crucial for authors, publishers, and lawyers in our globalized world.</p>
@@ -2496,7 +2498,7 @@
 
             <!-- Section 3: IP Landscape Overview -->
             <section class="section" aria-labelledby="ip-landscape-overview">
-                <h2 id="ip-landscape-overview">3. 🗺️ Intellectual Property Landscape</h2>
+                <h2 id="ip-landscape-overview">5. 🗺️ Intellectual Property Landscape</h2>
                 
                 <h3>🎯 The Four Main Types of IP Protection</h3>
                 <div class="two-column">
@@ -2742,7 +2744,7 @@
 
             <!-- Section 4: Copyright Fundamentals -->
             <section class="section" aria-labelledby="copyright-fundamentals">
-                <h2 id="copyright-fundamentals">4. 📖 Copyright Fundamentals: The Statutory Framework</h2>
+                <h2 id="copyright-fundamentals">6. 📖 Copyright Fundamentals: The Statutory Framework</h2>
 
                 <div class="statute-box">
                     <h4>🏛️ 17 U.S.C. § 102(a) – What Gets Copyright Protection</h4>
@@ -3128,7 +3130,7 @@
 
             <!-- Section 4: Idea vs. Expression -->
             <section class="section" aria-labelledby="idea-expression">
-                <h2 id="idea-expression">4. 💡 Idea vs. Expression: The Heart of Copyright</h2>
+                <h2 id="idea-expression">7. 💡 Idea vs. Expression: The Heart of Copyright</h2>
 
                 <div class="statute-box">
                     <h4>📜 17 U.S.C. § 102(b) - What Copyright Does NOT Protect</h4>
@@ -3305,7 +3307,7 @@
 
             <!-- Section 5: Fair Use in Literature -->
             <section class="section" aria-labelledby="fair-use">
-                <h2 id="fair-use">5. 📚 Fair Use in Literary Context</h2>
+                <h2 id="fair-use">8. 📚 Fair Use in Literary Context</h2>
 
                 <h3>📰 Visual Example: Fair Use in Academic Context</h3>
                 <div style="text-align: center; margin: 1.5rem 0; padding: 1rem; background: #f8fafc; border-radius: 8px;">
@@ -3441,7 +3443,7 @@
 
             <!-- Section 6: Technology & Authorship -->
             <section class="section" aria-labelledby="technology-authorship">
-                <h2 id="technology-authorship">6. 🤖 Technology & Authorship: From Photography to AI</h2>
+                <h2 id="technology-authorship">9. 🤖 Technology & Authorship: From Photography to AI</h2>
 
                 <h3>📸 The Foundation: Burrow-Giles v. Sarony (1884)</h3>
                 <div style="background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); padding: 30px; border-radius: 16px; margin: 2rem 0; border: 2px solid #e2e8f0;">
@@ -3716,7 +3718,7 @@
 
             <!-- Section 7: AI & Modern Challenges -->
             <section class="section" aria-labelledby="ai-challenges">
-                <h2 id="ai-challenges">7. 🤖 AI & Modern Copyright Challenges</h2>
+                <h2 id="ai-challenges">10. 🤖 AI & Modern Copyright Challenges</h2>
 
                 <h3>💻 Visual Example: Human-AI Collaboration Spectrum</h3>
                 <div style="text-align: center; margin: 1.5rem 0; padding: 1rem; background: #f8fafc; border-radius: 8px;">
@@ -3961,7 +3963,7 @@
 
             <!-- Section 8: International Dimension of Copyright -->
             <section class="section" aria-labelledby="international-copyright">
-                <h2 id="international-copyright">8. 🌍 The International Dimension: From Berne to Global Diversity</h2>
+                <h2 id="international-dimension">11. 🌍 The International Dimension: From Berne to Global Diversity</h2>
 
                 <h3>📜 The Berne Convention: Foundation of International Copyright</h3>
                 <div class="case-box">
@@ -4146,7 +4148,7 @@
 
             <!-- Section 9: Digital Platform Enforcement -->
             <section class="section" aria-labelledby="dmca-platforms">
-                <h2 id="dmca-platforms">9. 🛡️ Digital Platform Enforcement: DMCA Safe Harbors & Content Moderation</h2>
+                <h2 id="dmca-platforms">12. 🛡️ Digital Platform Enforcement: DMCA Safe Harbors & Content Moderation</h2>
                 
                 <div class="intro-text">
                     <p>In the digital age, most copyright enforcement happens not in courtrooms, but on platforms. Understanding how the DMCA safe harbors work—and where they're failing—is essential for modern copyright practice.</p>
@@ -4584,7 +4586,7 @@
 
             <!-- Section 10: Practice Applications -->
             <section class="section" aria-labelledby="practice-applications">
-                <h2 id="practice-applications">10. 💼 Practice Applications & Future Challenges</h2>
+                <h2 id="practice-applications">13. 💼 Practice Applications & Future Challenges</h2>
 
                 <h3>📚 Copyright in Publishing Practice</h3>
                 <div class="two-column">
@@ -4903,17 +4905,20 @@
         function announceSection(index) {
             const announcer = document.getElementById('section-announcer');
             const sectionTitles = [
-                'Pre-Class Readings and Resources',
+                'About the Instructor',
+                'Pre-Class Readings & Resources',
                 'Introduction to Intellectual Property: The Legal Landscape',
                 'Constitutional Foundation: Where It All Begins',
                 'International Copyright: Treaties & Comparative Approaches',
-                'Intellectual Property Landscape', 
+                'Intellectual Property Landscape',
                 'Copyright Fundamentals: The Statutory Framework',
                 'Idea vs. Expression: The Heart of Copyright',
                 'Fair Use in Literary Context',
-                'Technology and Authorship: From Photography to AI',
-                'AI and Modern Copyright Challenges',
-                'Practice Applications and Future Challenges'
+                'Technology & Authorship: From Photography to AI',
+                'AI & Modern Copyright Challenges',
+                'The International Dimension: From Berne to Global Diversity',
+                'Digital Platform Enforcement: DMCA Safe Harbors & Content Moderation',
+                'Practice Applications & Future Challenges'
             ];
             
             if (announcer && sectionTitles[index]) {
@@ -4962,42 +4967,53 @@
         }
 
         function showSection(index) {
-            // Hide all sections
-            sections.forEach(section => section.classList.remove('active'));
-            navBtns.forEach(btn => btn.classList.remove('active'));
-            
-            // Show selected section
-            sections[index].classList.add('active');
-            navBtns[index].classList.add('active');
-            
-            // Update progress bar
-            const progress = ((index + 1) / sections.length) * 100;
-            progressFill.style.width = progress + '%';
-            
-            currentSection = index;
-            
-            // Update TOC if visible
-            if (tocVisible) {
-                updateTOCActive();
+            // Debounce rapid section changes
+            if (showSection.timeout) {
+                clearTimeout(showSection.timeout);
             }
             
-            // Announce section change to screen readers
-            announceSection(index);
-            
-            // Focus management for accessibility
-            const sectionHeader = sections[index].querySelector('h2');
-            if (sectionHeader) {
-                sectionHeader.setAttribute('tabindex', '-1');
-                sectionHeader.focus();
+            showSection.timeout = setTimeout(() => {
+                // Hide all sections
+                sections.forEach(section => section.classList.remove('active'));
+                navBtns.forEach(btn => btn.classList.remove('active'));
                 
-                // Remove tabindex after focus to keep it out of tab order
-                setTimeout(() => {
-                    sectionHeader.removeAttribute('tabindex');
-                }, 1000);
-            }
+                // Show selected section
+                if (sections[index]) {
+                    sections[index].classList.add('active');
+                }
+                if (navBtns[index]) {
+                    navBtns[index].classList.add('active');
+                }
             
-            // Scroll to top
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+                // Update progress bar
+                const progress = ((index + 1) / sections.length) * 100;
+                progressFill.style.width = progress + '%';
+                
+                currentSection = index;
+                
+                // Update TOC if visible
+                if (tocVisible) {
+                    updateTOCActive();
+                }
+                
+                // Announce section change to screen readers
+                announceSection(index);
+            
+                // Focus management for accessibility
+                const sectionHeader = sections[index] ? sections[index].querySelector('h2') : null;
+                if (sectionHeader) {
+                    sectionHeader.setAttribute('tabindex', '-1');
+                    sectionHeader.focus();
+                    
+                    // Remove tabindex after focus to keep it out of tab order
+                    setTimeout(() => {
+                        sectionHeader.removeAttribute('tabindex');
+                    }, 1000);
+                }
+                
+                // Scroll to top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }, 50);
         }
 
         // Toggle presentation mode
