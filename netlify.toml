@@ -1,0 +1,87 @@
+[build]
+  publish = "."
+
+# Privacy-First Analytics
+[build.environment]
+  # Enable Netlify Analytics (privacy-respecting, no cookies)
+  NETLIFY_ANALYTICS = "true"
+
+# Security Headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Security headers for all pages
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    
+    # Content Security Policy (strict but functional)
+    Content-Security-Policy = '''
+      default-src 'self';
+      script-src 'self' 'unsafe-inline' fonts.googleapis.com;
+      style-src 'self' 'unsafe-inline' fonts.googleapis.com;
+      font-src 'self' fonts.gstatic.com;
+      img-src 'self' data:;
+      connect-src 'self';
+      frame-ancestors 'none';
+      base-uri 'self';
+      form-action 'self';
+    '''
+    
+    # Permissions Policy (disable unnecessary features)
+    Permissions-Policy = '''
+      camera=(),
+      microphone=(),
+      geolocation=(),
+      payment=(),
+      usb=(),
+      magnetometer=(),
+      gyroscope=(),
+      accelerometer=(),
+      ambient-light-sensor=(),
+      autoplay=(),
+      encrypted-media=(),
+      fullscreen=(self),
+      picture-in-picture=()
+    '''
+
+# Enhanced security for legal tools
+[[headers]]
+  for = "/open-legal-tools/*"
+  [headers.values]
+    # Additional protection for legal calculation tools
+    Cache-Control = "public, max-age=300, s-maxage=300"
+    X-Robots-Tag = "index, follow"
+
+# Privacy policy and legal pages
+[[headers]]
+  for = "/legal/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+    X-Robots-Tag = "index, follow"
+
+# Error tracking without personal data
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    # Enable error reporting while preserving privacy
+    Report-To = '{"group":"default","max_age":31536000,"endpoints":[{"url":"https://danielle.world/errors"}],"include_subdomains":true}'
+    NEL = '{"report_to":"default","max_age":31536000,"include_subdomains":true,"failure_fraction":0.1}'
+
+# Copyright law lecture redirect for students
+[[redirects]]
+  from = "/"
+  to = "/copyright-law.html"
+  status = 200
+  conditions = {Domain = ["copyright-law-lecture.netlify.app"]}
+
+# 404 error handling
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404
+
+# Form handling (if needed later)
+[[forms]]
+  # No forms currently, but prepared for future contact forms
