@@ -17,3 +17,7 @@
 # Projects
 /projects/open-music-tools/classical-piano-player/* https://classical-piano-player.netlify.app/:splat 200
 /projects/open-music-tools/classical-piano-player https://classical-piano-player.netlify.app/ 200
+
+# Personal Tools
+/inventory/* https://personal-inventory.netlify.app/:splat 200
+/inventory https://personal-inventory.netlify.app/ 200
