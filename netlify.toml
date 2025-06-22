@@ -76,17 +76,48 @@
   status = 200
   conditions = {Domain = ["copyright-law-lecture.netlify.app"]}
 
-# Personal Inventory App
+# Subdomain Redirects for Personal Projects
+# These work with Netlify's subdomain handling to create inventory.danielle.world, etc.
+
+# Personal Inventory App (inventory.danielle.world)
+[[redirects]]
+  from = "https://inventory.danielle.world/*"
+  to = "https://inventory-danielle.netlify.app/:splat"
+  status = 200
+  force = true
+
+# Classical Piano Player (music.danielle.world)
+[[redirects]]
+  from = "https://music.danielle.world/*"
+  to = "https://classical-piano-player.netlify.app/:splat"
+  status = 200
+  force = true
+
+# Family Recipes (recipes.danielle.world)
+[[redirects]]
+  from = "https://recipes.danielle.world/*"
+  to = "https://family-recipes-danielle.netlify.app/:splat"
+  status = 200
+  force = true
+
+# Hill Reclamation Project (garden.danielle.world)
+[[redirects]]
+  from = "https://garden.danielle.world/*"
+  to = "https://hill-reclamation.netlify.app/:splat"
+  status = 200
+  force = true
+
+# Legacy path redirects
 [[redirects]]
   from = "/inventory/*"
-  to = "https://personal-inventory.netlify.app/:splat"
-  status = 200
+  to = "https://inventory.danielle.world/:splat"
+  status = 301
   force = true
 
 [[redirects]]
   from = "/inventory"
-  to = "https://personal-inventory.netlify.app/"
-  status = 200
+  to = "https://inventory.danielle.world/"
+  status = 301
   force = true
 
 # 404 error handling
