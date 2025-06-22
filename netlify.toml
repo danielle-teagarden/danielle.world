@@ -76,6 +76,19 @@
   status = 200
   conditions = {Domain = ["copyright-law-lecture.netlify.app"]}
 
+# Personal Inventory App
+[[redirects]]
+  from = "/inventory/*"
+  to = "https://personal-inventory.netlify.app/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/inventory"
+  to = "https://personal-inventory.netlify.app/"
+  status = 200
+  force = true
+
 # 404 error handling
 [[redirects]]
   from = "/*"

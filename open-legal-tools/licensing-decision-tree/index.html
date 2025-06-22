@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open Source Licensing Decision Tree - Danielle M. Teagarden</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23667eea'/><text x='50' y='70' font-size='50' text-anchor='middle' fill='white'>📜</text></svg>">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .nav-breadcrumb {
+            margin-bottom: 2rem;
+        }
+
+        .nav-breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .nav-breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #4c51bf;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 3rem;
+        }
+
+        .decision-tree {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .decision-node {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-left: 5px solid #667eea;
+        }
+
+        .question {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #4c51bf;
+            margin-bottom: 1.5rem;
+        }
+
+        .options {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .option {
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .option:hover {
+            border-color: #667eea;
+            background: #eef2ff;
+        }
+
+        .option-title {
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+        }
+
+        .option-description {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .result {
+            background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .result h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .result-description {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+
+        .license-details {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .why-section {
+            background: #f8fafc;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .why-section h3 {
+            color: #4c51bf;
+            margin-bottom: 1rem;
+        }
+
+        .pros-cons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .pros, .cons {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+        }
+
+        .pros {
+            border-left: 4px solid #48bb78;
+        }
+
+        .cons {
+            border-left: 4px solid #f56565;
+        }
+
+        .pros h4 {
+            color: #38a169;
+            margin-bottom: 1rem;
+        }
+
+        .cons h4 {
+            color: #e53e3e;
+            margin-bottom: 1rem;
+        }
+
+        .pros ul, .cons ul {
+            list-style: none;
+        }
+
+        .pros li::before {
+            content: "✅ ";
+            margin-right: 0.5rem;
+        }
+
+        .cons li::before {
+            content: "❌ ";
+            margin-right: 0.5rem;
+        }
+
+        .reset-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .reset-btn:hover {
+            background: #5a67d8;
+        }
+
+        .footer {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #e2e8f0;
+            color: #666;
+            margin-top: 3rem;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 1rem;
+                padding: 2rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+
+            .pros-cons {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="nav-breadcrumb">
+            <a href="/">← danielle.world</a> / <a href="/open-legal-tools/">Open Legal Tools</a>
+        </nav>
+        
+        <h1>📜 Licensing Decision Tree</h1>
+        <p class="subtitle">Find the right open source license for your project</p>
+        
+        <div class="decision-tree">
+            <div id="step1" class="decision-node">
+                <div class="question">What type of project are you licensing?</div>
+                <div class="options">
+                    <div class="option" onclick="goToStep('step2-software')">
+                        <div class="option-title">Software/Code</div>
+                        <div class="option-description">Applications, libraries, scripts, tools, or any executable code</div>
+                    </div>
+                    <div class="option" onclick="goToStep('step2-content')">
+                        <div class="option-title">Educational Content</div>
+                        <div class="option-description">Course materials, documentation, presentations, or written content</div>
+                    </div>
+                    <div class="option" onclick="goToStep('step2-data')">
+                        <div class="option-title">Data/Calculations</div>
+                        <div class="option-description">Datasets, legal formulas, or factual information</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="step2-software" class="decision-node hidden">
+                <div class="question">How do you want others to use your software?</div>
+                <div class="options">
+                    <div class="option" onclick="showResult('mit')">
+                        <div class="option-title">Maximum Freedom</div>
+                        <div class="option-description">Anyone can use, modify, and redistribute (including commercial use) with minimal restrictions</div>
+                    </div>
+                    <div class="option" onclick="showResult('gpl')">
+                        <div class="option-title">Ensure Improvements Stay Open</div>
+                        <div class="option-description">Derivatives must also be open source and share improvements back</div>
+                    </div>
+                    <div class="option" onclick="showResult('apache')">
+                        <div class="option-title">Corporate-Friendly with Patent Protection</div>
+                        <div class="option-description">Like MIT but with explicit patent grants and trademark protection</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="step2-content" class="decision-node hidden">
+                <div class="question">How should others be able to use your educational content?</div>
+                <div class="options">
+                    <div class="option" onclick="showResult('cc-by')">
+                        <div class="option-title">Maximum Sharing</div>
+                        <div class="option-description">Anyone can use, modify, and redistribute with attribution only</div>
+                    </div>
+                    <div class="option" onclick="showResult('cc-by-sa')">
+                        <div class="option-title">Share-Alike</div>
+                        <div class="option-description">Derivatives must be shared under the same license</div>
+                    </div>
+                    <div class="option" onclick="showResult('cc-by-nc')">
+                        <div class="option-title">Non-Commercial Only</div>
+                        <div class="option-description">Free use for education and personal use, no commercial use</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="step2-data" class="decision-node hidden">
+                <div class="question">What type of data are you sharing?</div>
+                <div class="options">
+                    <div class="option" onclick="showResult('public-domain')">
+                        <div class="option-title">Facts or Legal Information</div>
+                        <div class="option-description">Copyright laws, legal formulas, or pure factual data</div>
+                    </div>
+                    <div class="option" onclick="showResult('cc0')">
+                        <div class="option-title">Creative Dataset</div>
+                        <div class="option-description">Compiled data, curated collections, or creative arrangements</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="result" class="hidden">
+                <!-- Results will be populated by JavaScript -->
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>This tool provides general guidance for common scenarios. For complex licensing needs, consult with a legal professional.</p>
+            <p>Licensed under <a href="https://opensource.org/licenses/MIT" style="color: #667eea;">MIT License</a> • Created for educational purposes</p>
+            <p><a href="/legal/privacy" style="color: #667eea;">Privacy Policy</a> • 
+               <a href="/legal/terms" style="color: #667eea;">Terms of Service</a> • 
+               <a href="/legal/disclaimer" style="color: #667eea;">Educational Disclaimer</a></p>
+        </footer>
+    </div>
+
+    <script src="/js/privacy-monitoring.js"></script>
+    <script>
+        const results = {
+            'mit': {
+                title: 'MIT License',
+                description: 'The most popular permissive open source license',
+                details: 'Perfect for software tools, educational applications, and projects where you want maximum adoption. Used by jQuery, Rails, and Bootstrap.',
+                why: 'Maximum adoption potential while maintaining attribution',
+                pros: [
+                    'Simple and widely understood',
+                    'Commercial use allowed',
+                    'Compatible with other licenses',
+                    'Courts understand it well',
+                    'Preferred by most developers'
+                ],
+                cons: [
+                    'No guarantee of improvements shared back',
+                    'Someone could make proprietary derivatives',
+                    'No patent protection'
+                ]
+            },
+            'gpl': {
+                title: 'GNU GPL v3',
+                description: 'Strong copyleft license ensuring freedom',
+                details: 'Ensures all derivatives remain open source. Good for projects where you want to prevent proprietary capture.',
+                why: 'Protects software freedom through copyleft',
+                pros: [
+                    'All derivatives must be open source',
+                    'Strong community protection',
+                    'Prevents proprietary capture',
+                    'Includes patent protection'
+                ],
+                cons: [
+                    'Complex legal requirements',
+                    'Can limit commercial adoption',
+                    'Not compatible with some licenses',
+                    'May scare away corporate users'
+                ]
+            },
+            'apache': {
+                title: 'Apache License 2.0',
+                description: 'Corporate-friendly permissive license',
+                details: 'Like MIT but includes explicit patent grants and contributor protections. Popular with large projects and enterprises.',
+                why: 'Balances freedom with patent protection',
+                pros: [
+                    'Explicit patent grant included',
+                    'Corporate-friendly',
+                    'Good trademark protection',
+                    'Well-understood by lawyers'
+                ],
+                cons: [
+                    'More complex than MIT',
+                    'Longer license text',
+                    'May be overkill for simple projects'
+                ]
+            },
+            'cc-by': {
+                title: 'Creative Commons BY 4.0',
+                description: 'Attribution-only for creative works',
+                details: 'Perfect for educational materials, documentation, and content you want shared widely. Standard in academic publishing.',
+                why: 'Maximizes educational impact and sharing',
+                pros: [
+                    'Maximum sharing and remixing',
+                    'Commercial use allowed',
+                    'Academic standard',
+                    'Clear attribution requirements'
+                ],
+                cons: [
+                    'No control over derivatives',
+                    'Commercial use might be unwanted',
+                    'Not designed for software'
+                ]
+            },
+            'cc-by-sa': {
+                title: 'Creative Commons BY-SA 4.0',
+                description: 'Share-alike for educational content',
+                details: 'Like CC BY but derivatives must be shared under the same license. Prevents proprietary capture of educational materials.',
+                why: 'Ensures educational improvements stay open',
+                pros: [
+                    'Prevents proprietary derivatives',
+                    'Encourages open education',
+                    'Strong academic adoption',
+                    'Builds open knowledge commons'
+                ],
+                cons: [
+                    'Can limit some remixing',
+                    'More complex than CC BY',
+                    'May reduce commercial adoption'
+                ]
+            },
+            'cc-by-nc': {
+                title: 'Creative Commons BY-NC 4.0',
+                description: 'Non-commercial educational use',
+                details: 'Allows educational and personal use but prohibits commercial use. Good for materials you want to keep free.',
+                why: 'Protects against commercialization',
+                pros: [
+                    'Prevents commercial exploitation',
+                    'Free for education and research',
+                    'You retain commercial rights',
+                    'Good for personal projects'
+                ],
+                cons: [
+                    'Limits adoption and impact',
+                    'Commercial definition is unclear',
+                    'Can prevent useful integrations',
+                    'May limit academic use'
+                ]
+            },
+            'public-domain': {
+                title: 'Public Domain',
+                description: 'No copyright restrictions',
+                details: 'Legal facts, statutes, and formulas cannot be copyrighted in the US. No license needed.',
+                why: 'Law and facts belong to everyone',
+                pros: [
+                    'No restrictions whatsoever',
+                    'Maximum possible freedom',
+                    'No attribution required',
+                    'Cannot be copyrighted anyway'
+                ],
+                cons: [
+                    'No credit or attribution',
+                    'May not apply in all countries',
+                    'No control over use'
+                ]
+            },
+            'cc0': {
+                title: 'Creative Commons CC0',
+                description: 'Public domain dedication for creative works',
+                details: 'Releases your rights to the fullest extent possible. Good for datasets and collections you want widely used.',
+                why: 'Maximum impact through unrestricted sharing',
+                pros: [
+                    'No restrictions on use',
+                    'Encourages wide adoption',
+                    'Simple for users',
+                    'Good for research data'
+                ],
+                cons: [
+                    'No attribution requirement',
+                    'Cannot be undone',
+                    'No credit or recognition',
+                    'May not be valid everywhere'
+                ]
+            }
+        };
+
+        function goToStep(stepId) {
+            // Hide all steps
+            document.querySelectorAll('.decision-node').forEach(node => {
+                node.classList.add('hidden');
+            });
+            document.getElementById('result').classList.add('hidden');
+            
+            // Show target step
+            document.getElementById(stepId).classList.remove('hidden');
+        }
+
+        function showResult(licenseKey) {
+            const result = results[licenseKey];
+            
+            // Hide all steps
+            document.querySelectorAll('.decision-node').forEach(node => {
+                node.classList.add('hidden');
+            });
+            
+            // Show result
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = `
+                <div class="result">
+                    <h2>Recommended: ${result.title}</h2>
+                    <div class="result-description">${result.description}</div>
+                    <div class="license-details">
+                        <strong>Best for:</strong> ${result.details}
+                    </div>
+                    <button class="reset-btn" onclick="reset()">Start Over</button>
+                </div>
+                
+                <div class="why-section">
+                    <h3>Why ${result.title}?</h3>
+                    <p>${result.why}</p>
+                    
+                    <div class="pros-cons">
+                        <div class="pros">
+                            <h4>Advantages</h4>
+                            <ul>
+                                ${result.pros.map(pro => `<li>${pro}</li>`).join('')}
+                            </ul>
+                        </div>
+                        <div class="cons">
+                            <h4>Considerations</h4>
+                            <ul>
+                                ${result.cons.map(con => `<li>${con}</li>`).join('')}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            `;
+            resultDiv.classList.remove('hidden');
+        }
+
+        function reset() {
+            document.querySelectorAll('.decision-node').forEach(node => {
+                node.classList.add('hidden');
+            });
+            document.getElementById('result').classList.add('hidden');
+            document.getElementById('step1').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>

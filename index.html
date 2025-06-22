@@ -3,54 +3,344 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Danielle Teagarden</title>
-    <meta http-equiv="refresh" content="0; url=https://github.com/danielle-teagarden">
+    <title>Danielle Teagarden - Projects & Portfolio</title>
+    <meta name="description" content="Personal projects, legal technology tools, and creative works by Danielle Teagarden">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700&family=Libre+Baskerville:ital@0;1&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+        :root {
+            --primary: #8B5CF6;
+            --primary-dark: #7C3AED;
+            --secondary: #EC4899;
+            --dark: #1F2937;
+            --light: #F9FAFB;
+            --gray: #6B7280;
+            --border: #E5E7EB;
+        }
+
+        * {
             margin: 0;
-            background: #f8f9fa;
-            color: #333;
+            padding: 0;
+            box-sizing: border-box;
         }
-        .redirect-message {
-            text-align: center;
-            max-width: 400px;
-            padding: 2rem;
+
+        body {
+            font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: var(--light);
         }
-        .redirect-message h1 {
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
         }
-        .redirect-message p {
-            margin-bottom: 1.5rem;
-            color: #666;
+
+        header {
+            background: white;
+            border-bottom: 1px solid var(--border);
+            padding: 2rem 0;
         }
-        .redirect-message a {
-            color: #0366d6;
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .tagline {
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--dark);
             text-decoration: none;
             font-weight: 500;
+            transition: color 0.2s;
         }
-        .redirect-message a:hover {
-            text-decoration: underline;
+
+        nav a:hover {
+            color: var(--primary);
         }
-        .projects-link {
-            margin-top: 1rem;
-            font-size: 0.9rem;
+
+        main {
+            padding: 4rem 0;
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding: 0 1rem;
+        }
+
+        .intro h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-family: 'Libre Baskerville', serif;
+        }
+
+        .intro p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-category {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: var(--primary);
+            color: white;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .project-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--dark);
+        }
+
+        .project-card p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .project-link {
+            padding: 0.5rem 1rem;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .project-link:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .project-link.secondary {
+            border-color: var(--border);
+            color: var(--gray);
+        }
+
+        .project-link.secondary:hover {
+            background: var(--gray);
+            color: white;
+            border-color: var(--gray);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            font-family: 'Libre Baskerville', serif;
+        }
+
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .intro h2 {
+                font-size: 2rem;
+            }
+            
+            h1 {
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="redirect-message">
-        <h1>Danielle Teagarden</h1>
-        <p>Redirecting to my GitHub profile...</p>
-        <p>If you're not redirected automatically, <a href="https://github.com/danielle-teagarden">click here</a>.</p>
-        <div class="projects-link">
-            <a href="/projects/">View my projects</a>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div>
+                    <h1>Danielle Teagarden</h1>
+                    <p class="tagline">Legal Technology & Creative Projects</p>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#personal">Personal</a></li>
+                        <li><a href="#legal">Legal Tools</a></li>
+                        <li><a href="https://github.com/danielle-teagarden">GitHub</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
-    </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <section class="intro">
+                <h2>Building Tools That Matter</h2>
+                <p>From accessible legal technology to creative experiments, these projects reflect my passion for using technology to solve real problems and explore new ideas.</p>
+            </section>
+
+            <section id="personal">
+                <h2 class="section-title">Personal Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <span class="project-category">Web App</span>
+                        <h3>Personal Inventory Manager</h3>
+                        <p>Track and value personal possessions using AI-powered image recognition and market data integration. Built with React, TypeScript, and Supabase.</p>
+                        <div class="project-links">
+                            <a href="https://inventory.danielle.world" class="project-link">Coming Soon</a>
+                            <a href="https://github.com/danielle-teagarden/Inventory" class="project-link secondary">GitHub</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <span class="project-category">Music</span>
+                        <h3>Classical Piano Player</h3>
+                        <p>Experience 456 historical piano performances from mechanical piano rolls, transformed into expressive digital performances with concert hall acoustics.</p>
+                        <div class="project-links">
+                            <a href="https://music.danielle.world" class="project-link">Coming Soon</a>
+                            <a href="https://github.com/danielle-teagarden/ClassicalPianoPlayer" class="project-link secondary">GitHub</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <span class="project-category">Family</span>
+                        <h3>Family Recipe Collection</h3>
+                        <p>Password-protected family recipe sharing platform. Designed for easy use across devices with a focus on preserving family culinary traditions.</p>
+                        <div class="project-links">
+                            <a href="https://recipes.danielle.world" class="project-link">In Development</a>
+                            <a href="https://github.com/danielle-teagarden/family-recipe-book" class="project-link secondary">GitHub</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <span class="project-category">Creative</span>
+                        <h3>Juice Box Musical Playground</h3>
+                        <p>Educational musical game for children built with Godot. Features interactive instruments and music theory lessons in a playful environment.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/danielle-teagarden/juice-box-musical-playground" class="project-link">GitHub</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <span class="project-category">Productivity</span>
+                        <h3>Smart Notifications System</h3>
+                        <p>Advanced calendar notification system with SMS integration and voice recording capabilities. More powerful than standard calendar alerts.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/danielle-teagarden/notifications-system" class="project-link secondary">GitHub</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <span class="project-category">Garden</span>
+                        <h3>Hill Reclamation Project</h3>
+                        <p>Documenting the transformation of a lakeside hill with native Indiana plants. Focus on soil retention and creating a medicinal garden.</p>
+                        <div class="project-links">
+                            <a href="https://garden.danielle.world" class="project-link">Coming Soon</a>
+                            <a href="https://github.com/danielle-teagarden/hill-reclamation" class="project-link secondary">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="legal">
+                <h2 class="section-title">Legal Technology</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <span class="project-category">Legal Tech</span>
+                        <h3>Open Legal Tools</h3>
+                        <p>Suite of accessible legal technology tools designed to make legal information more accessible to everyone. Features AI-powered research assistance.</p>
+                        <div class="project-links">
+                            <a href="/open-legal-tools" class="project-link">Explore Tools</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <span class="project-category">Legal Tech</span>
+                        <h3>Scout AI Infrastructure</h3>
+                        <p>Advanced legal research infrastructure with autonomous agents for comprehensive legal analysis and document processing.</p>
+                        <div class="project-links">
+                            <a href="/scout-teams" class="project-link">Learn More</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <span class="project-category">Resources</span>
+                        <h3>Legal Resources Hub</h3>
+                        <p>Curated collection of legal resources, guides, and tools for legal professionals and the public.</p>
+                        <div class="project-links">
+                            <a href="/legal" class="project-link">Browse Resources</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Danielle Teagarden. Built with care in Indiana.</p>
+            <p>View on <a href="https://github.com/danielle-teagarden">GitHub</a></p>
+        </div>
+    </footer>
 </body>
 </html>

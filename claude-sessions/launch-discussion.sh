@@ -1,0 +1,25 @@
+#!/bin/bash
+# Launch collaborative architecture discussion
+
+echo "🤖 Claude-to-Claude Architecture Discussion"
+echo "Project: danielle-world-review"
+echo ""
+echo "Available perspectives:"
+echo "  - architect-lead"
+echo "  - security-expert"
+echo "  - performance-engineer"
+echo "  - user-experience"
+echo "  - devops-specialist"
+echo ""
+echo "Commands:"
+echo "  1. Start individual analysis:"
+echo "     cd danielle-world-review-[perspective] && claude chat"
+echo ""
+echo "  2. Cross-perspective review:"
+echo "     claude chat --file ../[other-perspective]/analysis.md"
+echo ""
+echo "  3. Final consensus:"
+echo "     cd danielle-world-review-coordinator && claude chat --file */analysis.md"
+echo ""
+echo "Current worktrees:"
+git worktree list
